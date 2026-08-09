@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Wà Kà Jò — Aperçu combiné</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&family=Big+Shoulders+Display:wght@500;700;900&family=Fraunces:ital,wght@0,600;1,500&family=Karla:wght@400;500;600;700&display=swap');
+
+:root{
+  --ink:#0B0A08;
+  --paper:#F6F1E4;
+  --amber:#F0A63A;
+  --red:#C5341F;
+  --flame:#E3492A;
+  --gold:#E8B23D;
+  --forest:#1B3327;
+  --line: rgba(20,19,17,0.14);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+body{ background:#000; font-family:'Karla', sans-serif; }
+.sheet{
+  width:100%; max-width:880px; margin:0 auto 26px;
+  background:var(--paper); color:var(--ink);
+  min-height:100vh; position:relative; overflow:hidden;
+}
+.page-num{ position:absolute; bottom:22px; right:26px; font-size:11px; letter-spacing:0.1em; color:rgba(20,19,17,0.4); }
+.credit{ position:absolute; bottom:10px; right:14px; font-size:8.5px; letter-spacing:0.05em; color:rgba(246,241,228,0.55); z-index:5; }
+
+/* ===================== PAGE 1 — COUVERTURE (du 1er code) ===================== */
+.cover{ background:var(--ink); color:var(--paper); position:relative; }
+.cover .photo-wrap{ height:56vh; min-height:340px; position:relative; overflow:hidden; }
+.cover .photo-wrap img{ width:100%; height:100%; object-fit:cover; filter:grayscale(15%) contrast(1.05); }
+.cover .photo-wrap::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(to top, var(--ink) 0%, rgba(20,19,17,0.15) 55%, rgba(20,19,17,0.35) 100%);
+}
+.cover-body{ padding:36px 48px 52px; position:relative; }
+.cover-body .eyebrow{ font-size:12px; letter-spacing:0.3em; text-transform:uppercase; color:var(--amber); font-weight:600; }
+.cover-body .brand{ font-family:'Anton', sans-serif; font-size:clamp(52px,10vw,92px); line-height:0.86; text-transform:uppercase; margin-top:28px; }
+.cover-body .brand .accent{ color:var(--red); }
+.cover-body .tagline{ margin-top:14px; font-size:17px; font-style:italic; color:rgba(244,239,230,0.75); max-width:420px; }
+.cover-body .cover-footer{
+  display:flex; justify-content:space-between; align-items:flex-end;
+  border-top:1px solid rgba(244,239,230,0.18); padding-top:18px; margin-top:30px;
+  font-size:12px; letter-spacing:0.03em; color:rgba(244,239,230,0.6);
+}
+.cover-body .cover-footer .big{ font-family:'Anton', sans-serif; font-size:19px; color:var(--paper); }
+
+/* ===================== PAGE 2 — SOMMAIRE (du 2e code) ===================== */
+.duo{ position:relative; overflow:hidden; background:var(--ink); }
+.duo img{ width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(1) contrast(1.15) brightness(0.92); }
+.duo::after{ content:""; position:absolute; inset:0; background:linear-gradient(150deg, var(--flame) 0%, var(--ink) 115%); mix-blend-mode:color; opacity:0.92; }
+.duo.gold::after{ background:linear-gradient(150deg, var(--gold) 0%, var(--forest) 120%); }
+.ring{ position:absolute; border-radius:50%; border:1.5px solid rgba(11,10,8,0.14); pointer-events:none; }
+
+.som{ display:grid; grid-template-columns:38% 62%; min-height:100vh; }
+.som-photo{ position:relative; background:var(--ink); }
+.som-photo .duo{ position:absolute; inset:0; }
+.som-vert{
+  position:absolute; left:24px; top:50%; transform:translateY(-50%) rotate(180deg);
+  writing-mode:vertical-rl; font-family:'Big Shoulders Display',sans-serif; font-weight:900;
+  font-size:15px; letter-spacing:0.3em; color:var(--paper); z-index:3; text-transform:uppercase;
+}
+.som-tag{
+  position:absolute; top:28px; left:24px; z-index:3;
+  font-family:'Big Shoulders Display',sans-serif; font-weight:700; font-size:13px;
+  color:var(--paper); background:var(--flame); padding:5px 12px; transform:rotate(-4deg);
+}
+.som-right{ padding:56px 40px 40px; position:relative; }
+.som-right .ring{ width:190px; height:190px; top:-70px; right:-60px; }
+.som-title{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:52px; text-transform:uppercase; line-height:0.85; position:relative; z-index:2; }
+.som-title .thin{ -webkit-text-stroke:1.5px var(--ink); color:transparent; }
+.som-rule{ width:60px; height:4px; background:var(--flame); margin:20px 0 36px; }
+.som-list{ list-style:none; position:relative; z-index:2; }
+.som-list li{
+  display:grid; grid-template-columns:64px 1fr 44px; align-items:center;
+  padding:0; height:56px; border-bottom:1px solid rgba(11,10,8,0.14);
+}
+.som-list .idx{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:30px; color:transparent; -webkit-text-stroke:1.4px var(--flame); }
+.som-list .ttl{ font-weight:700; font-size:16.5px; letter-spacing:0.01em; }
+.som-list .pg{ font-family:'Fraunces',serif; font-style:italic; font-size:13px; text-align:right; color:rgba(11,10,8,0.45); }
+.som-list li:nth-child(even) .idx{ -webkit-text-stroke:1.4px var(--gold); }
+
+/* ===================== PAGE 3 — BILAN / "Le point de départ" (du 2e code) ===================== */
+.eyebrow{ font-size:11px; letter-spacing:0.32em; text-transform:uppercase; font-weight:700; color:var(--flame); }
+.bilan{ position:relative; min-height:100vh; display:flex; flex-direction:column; }
+.bilan-photo{ position:relative; flex:1; min-height:300px; clip-path:polygon(0 0, 100% 0, 100% 100%, 0 88%); }
+.bilan-head{ position:absolute; top:38px; left:38px; z-index:2; }
+.bilan-head .eyebrow{ color:var(--paper); }
+.bilan-head h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:40px; color:var(--paper); text-transform:uppercase; margin-top:6px; }
+.stat-panel{ display:grid; grid-template-columns:repeat(3,1fr); background:var(--ink); margin-top:-1px; }
+.stat-cell{ padding:36px 22px; text-align:center; border-right:1px solid rgba(246,241,228,0.15); }
+.stat-cell:last-child{ border-right:none; }
+.stat-cell .n{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:54px; color:var(--gold); line-height:1; }
+.stat-cell .l{ font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--paper); opacity:0.75; margin-top:8px; }
+.bilan-note{ padding:36px 44px; font-size:14.5px; line-height:1.75; color:#33302a; }
+
+/* ===================== PAGE 4 — ÉQUIPE ORGANISATRICE (du 2e code) ===================== */
+.equipe{ padding:64px 44px; position:relative; }
+.equipe h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:46px; text-transform:uppercase; margin-bottom:8px; }
+.equipe .rule{ width:70px; height:5px; background:var(--flame); margin-bottom:20px; }
+.equipe .body-txt{ font-size:14.5px; line-height:1.75; color:#33302a; margin-bottom:36px; max-width:560px; }
+.team-grid{ display:grid; grid-template-columns:1.3fr 1fr; gap:22px; }
+.team-card.lead .duo{ aspect-ratio:3/4; clip-path:polygon(0 0, 100% 0, 100% 92%, 0 100%); }
+.team-card:not(.lead) .duo{ aspect-ratio:3/4; clip-path:polygon(0 8%, 100% 0, 100% 100%, 0 100%); margin-top:34px; }
+.team-card .name{ font-family:'Big Shoulders Display',sans-serif; font-weight:700; font-size:20px; margin-top:16px; text-transform:uppercase; }
+.team-card .role{ font-family:'Fraunces',serif; font-style:italic; font-size:13.5px; color:#8a8579; margin-top:2px; }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 — COUVERTURE (1er code) -->
+<div class="sheet cover">
+  <div class="photo-wrap">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/B-boy_breakdancing.jpg" alt="">
+  </div>
+  <div class="cover-body">
+    <div class="eyebrow">Festival International — Édition 2027</div>
+    <div class="brand">Wà Kà <span class="accent">Jò</span></div>
+    <div class="tagline">« Venez danser avec moi » — Danse urbaine &amp; mixité culturelle, au cœur de Cotonou</div>
+    <div class="cover-footer">
+      <div>Une organisation<br><span class="big">Beeworkers</span></div>
+      <div>Février 2027<br>Institut français de Cotonou</div>
+    </div>
+  </div>
+  <div class="page-num" style="color:rgba(244,239,230,0.5)">01</div>
+</div>
+
+<!-- PAGE 2 — SOMMAIRE (2e code) -->
+<div class="sheet som">
+  <div class="som-photo">
+    <div class="duo gold">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Breakdance_cypher.JPG" alt="">
+      <span class="credit">Illustration</span>
+    </div>
+    <div class="som-tag">Édition 2027</div>
+    <div class="som-vert">WÀ KÀ JÒ · SOMMAIRE</div>
+  </div>
+  <div class="som-right">
+    <div class="ring"></div>
+    <div class="som-title">SOM<span class="thin">MAIRE</span></div>
+    <div class="som-rule"></div>
+    <ul class="som-list">
+      <li><span class="idx">01</span><span class="ttl">Contexte &amp; naissance du projet</span><span class="pg">p. 03</span></li>
+      <li><span class="idx">02</span><span class="ttl">Présentation — Édition 2027</span><span class="pg">p. 04</span></li>
+      <li><span class="idx">03</span><span class="ttl">Programme prévisionnel</span><span class="pg">p. 05</span></li>
+      <li><span class="idx">04</span><span class="ttl">Bilan de la première édition</span><span class="pg">p. 06</span></li>
+      <li><span class="idx">05</span><span class="ttl">Équipe organisatrice</span><span class="pg">p. 07</span></li>
+      <li><span class="idx">06</span><span class="ttl">Contact &amp; partenariats</span><span class="pg">p. 08</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- PAGE 3 — BILAN / "Le point de départ" (2e code) -->
+<div class="sheet bilan">
+  <div class="bilan-photo">
+    <div class="duo gold" style="position:absolute; inset:0;">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ghana_Dance_-_4803402535.jpg" alt="">
+      <span class="credit">Illustration</span>
+    </div>
+    <div class="bilan-head">
+      <div class="eyebrow">Édition 2026</div>
+      <h2>Le point de départ</h2>
+    </div>
+  </div>
+  <div class="stat-panel">
+    <div class="stat-cell"><div class="n">42</div><div class="l">Danseurs</div></div>
+    <div class="stat-cell"><div class="n">03</div><div class="l">Pays représentés</div></div>
+    <div class="stat-cell"><div class="n">300</div><div class="l">Spectateurs</div></div>
+  </div>
+  <div class="bilan-note">Les danseurs béninois sont venus de tous les horizons du pays — Collines, Cotonou, Calavi — signe d'un ancrage déjà national dès cette première édition, tenue le 24 janvier 2026 au Centre communautaire Eya.</div>
+</div>
+
+<!-- PAGE 4 — ÉQUIPE ORGANISATRICE (2e code) -->
+<div class="sheet equipe">
+  <div class="ring" style="width:220px; height:220px; top:-90px; right:-70px;"></div>
+  <h2>Équipe</h2>
+  <div class="rule"></div>
+  <p class="body-txt">Smith Zannou porte le projet avec l'appui de Beeworkers, compagnie engagée depuis 2013 dans le développement des cultures urbaines au Bénin.</p>
+  <div class="team-grid">
+    <div class="team-card lead">
+      <div class="duo">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kete_Dancer.jpg" alt="">
+        <span class="credit">Illustration</span>
+      </div>
+      <div class="name">Smith Zannou</div>
+      <div class="role">Fondateur — Wà Kà Jò</div>
+    </div>
+    <div class="team-card">
+      <div class="duo gold">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lady_dancing.jpg" alt="">
+        <span class="credit">Illustration</span>
+      </div>
+      <div class="name">Beeworkers</div>
+      <div class="role">Compagnie organisatrice</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
