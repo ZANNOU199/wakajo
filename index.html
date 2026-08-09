@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Wà Kà Jò — Aperçu combiné</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&family=Big+Shoulders+Display:wght@500;700;900&family=Fraunces:ital,wght@0,600;1,500&family=Karla:wght@400;500;600;700&display=swap');
@@ -105,6 +106,40 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .team-card:not(.lead) .duo{ aspect-ratio:3/4; clip-path:polygon(0 8%, 100% 0, 100% 100%, 0 100%); margin-top:34px; }
 .team-card .name{ font-family:'Big Shoulders Display',sans-serif; font-weight:700; font-size:20px; margin-top:16px; text-transform:uppercase; }
 .team-card .role{ font-family:'Fraunces',serif; font-style:italic; font-size:13.5px; color:#8a8579; margin-top:2px; }
+
+/* ===================== MOBILE — police agrandie + mise en page empilée ===================== */
+@media (max-width: 640px){
+  .cover-body .eyebrow{ font-size:14px; }
+  .cover-body .tagline{ font-size:19px; }
+  .cover-body .cover-footer{ font-size:14px; }
+  .cover-body .cover-footer .big{ font-size:22px; }
+
+  .som{ grid-template-columns:1fr; }
+  .som-photo{ min-height:260px; }
+  .som-right{ padding:40px 26px; }
+  .som-title{ font-size:44px; }
+  .som-list li{ height:auto; padding:16px 0; grid-template-columns:48px 1fr 44px; }
+  .som-list .idx{ font-size:26px; }
+  .som-list .ttl{ font-size:18px; }
+  .som-list .pg{ font-size:14px; }
+
+  .eyebrow{ font-size:13px; }
+  .bilan-head h2{ font-size:32px; }
+  .stat-panel{ grid-template-columns:1fr; }
+  .stat-cell{ border-right:none; border-bottom:1px solid rgba(246,241,228,0.15); padding:26px 22px; }
+  .stat-cell:last-child{ border-bottom:none; }
+  .stat-cell .n{ font-size:44px; }
+  .stat-cell .l{ font-size:12.5px; }
+  .bilan-note{ font-size:16.5px; padding:28px 26px; }
+
+  .equipe{ padding:44px 26px; }
+  .equipe h2{ font-size:38px; }
+  .equipe .body-txt{ font-size:16.5px; }
+  .team-grid{ grid-template-columns:1fr; }
+  .team-card:not(.lead) .duo{ margin-top:0; }
+  .team-card .name{ font-size:22px; }
+  .team-card .role{ font-size:15.5px; }
+}
 </style>
 </head>
 <body>
