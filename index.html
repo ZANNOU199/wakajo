@@ -15,6 +15,9 @@
   --flame:#E3492A;
   --gold:#E8B23D;
   --forest:#1B3327;
+  --teal:#2F7168;
+  --indigo:#3E5C89;
+  --coral:#E8734F;
   --line: rgba(20,19,17,0.14);
 }
 *{box-sizing:border-box; margin:0; padding:0;}
@@ -26,13 +29,13 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 }
 .page-num{ position:absolute; bottom:22px; right:26px; font-size:11px; letter-spacing:0.1em; color:rgba(20,19,17,0.4); z-index:5; }
 .credit{ position:absolute; bottom:10px; right:14px; font-size:8.5px; letter-spacing:0.05em; color:rgba(246,241,228,0.55); z-index:5; }
-.eyebrow{ font-size:11px; letter-spacing:0.32em; text-transform:uppercase; font-weight:700; color:var(--flame); }
+.eyebrow{ font-size:17px; letter-spacing:0.24em; text-transform:uppercase; font-weight:700; color:var(--flame); }
 .ring{ position:absolute; border-radius:50%; border:1.5px solid rgba(11,10,8,0.14); pointer-events:none; }
 
 /* ===================== COVER ===================== */
 .cover{ background:var(--ink); color:var(--paper); position:relative; }
-.cover .photo-wrap{ height:56vh; min-height:340px; position:relative; overflow:hidden; }
-.cover .photo-wrap img{ width:100%; height:100%; object-fit:cover; filter:grayscale(15%) contrast(1.05); }
+.cover .photo-wrap{ height:52vh; min-height:320px; position:relative; overflow:hidden; }
+.cover .photo-wrap img{ width:100%; height:100%; object-fit:cover; object-position:center 32%; filter:grayscale(15%) contrast(1.05); }
 .cover .photo-wrap::after{ content:""; position:absolute; inset:0; background:linear-gradient(to top, var(--ink) 0%, rgba(20,19,17,0.15) 55%, rgba(20,19,17,0.35) 100%); }
 .cover-body{ padding:36px 48px 52px; position:relative; }
 .cover-body .eyebrow{ color:var(--amber); font-weight:600; letter-spacing:0.3em; font-size:12px; }
@@ -47,6 +50,17 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .duo img{ width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(1) contrast(1.15) brightness(0.92); }
 .duo::after{ content:""; position:absolute; inset:0; background:linear-gradient(150deg, var(--flame) 0%, var(--ink) 115%); mix-blend-mode:color; opacity:0.92; }
 .duo.gold::after{ background:linear-gradient(150deg, var(--gold) 0%, var(--forest) 120%); }
+.duo.teal::after{ background:linear-gradient(150deg, var(--teal) 0%, var(--ink) 120%); }
+.duo.indigo::after{ background:linear-gradient(150deg, var(--indigo) 0%, var(--ink) 120%); }
+.duo.coral::after{ background:linear-gradient(150deg, var(--coral) 0%, var(--forest) 120%); }
+.duo.no-overlay::after{ opacity:0; }
+.duo.no-overlay img{ filter:none; }
+.duo.show-full img{ object-fit:contain; }
+.duo.natural::after{ display:none; }
+.duo.natural img{ filter:contrast(1.05) saturate(1.05) brightness(1); }
+.duo.photo-real::after{ display:none; }
+.duo.photo-real img{ filter:contrast(1.05) saturate(1.05) brightness(0.98); }
+.duo.mono::after{ opacity:0; }
 .duo.cut-r{ clip-path:polygon(0 0, 100% 0, 100% 82%, 0 100%); }
 .duo.cut-l{ clip-path:polygon(0 18%, 100% 0, 100% 100%, 0 100%); }
 
@@ -67,20 +81,21 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .som-list .ttl{ font-weight:700; font-size:13.5px; letter-spacing:0.01em; }
 .som-list .pg{ font-family:'Fraunces',serif; font-style:italic; font-size:11.5px; text-align:right; color:rgba(11,10,8,0.45); }
 .som-list li:nth-child(even) .idx{ -webkit-text-stroke:1.2px var(--gold); }
+.som-list li:nth-child(3n) .idx{ -webkit-text-stroke:1.2px var(--teal); }
 
 /* ===================== SPLIT (photo + texte) ===================== */
 .split{ display:grid; grid-template-columns:1fr 1fr; min-height:100vh; position:relative; }
 .split .duo{ min-height:340px; }
 .split-text{ padding:60px 44px; display:flex; flex-direction:column; justify-content:center; position:relative; }
 .split-text .ring{ width:140px; height:140px; bottom:20px; right:10px; }
-.split-text h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:40px; text-transform:uppercase; margin-bottom:16px; line-height:0.88; position:relative; z-index:2; }
+.split-text h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:48px; text-transform:uppercase; margin-bottom:16px; line-height:0.88; position:relative; z-index:2; }
 .pull{ font-family:'Fraunces',serif; font-style:italic; font-size:19px; line-height:1.5; color:var(--flame); margin-bottom:18px; position:relative; z-index:2; }
 .body-txt{ font-size:14px; line-height:1.72; color:#33302a; position:relative; z-index:2; margin-bottom:12px; }
 .body-txt:last-child{ margin-bottom:0; }
 
 /* ===== Page 3 (Contexte) : tailles alignées sur la page "Bilan" (page 3) du second document ===== */
 .page-contexte .split-text{ padding:36px 44px; }
-.page-contexte .split-text h2{ font-size:40px; }
+.page-contexte .split-text h2{ font-size:48px; }
 .page-contexte .body-txt{ font-size:14.5px; line-height:1.75; }
 
 /* ===================== QUOTE / FULL BLEED (Vision, Contact) ===================== */
@@ -94,6 +109,7 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .page-vision .quote-inner{ align-items:flex-end; padding-bottom:36px; }
 .page-vision .quote-footer{ padding-top:26px; }
 .page-vision .quote-inner{ align-items:flex-end; padding-bottom:12px; }
+.page-vision .quote-footer{ display:none; }
 
 /* Page Contact (dernière page) : image réduite */
 .page-contact .quote-page{ justify-content:center; }
@@ -109,18 +125,19 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 
 /* ===================== NUMBERED LIST (Objectifs, Critères) ===================== */
 .list-page{ padding:60px 44px; position:relative; }
-.list-page h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:42px; text-transform:uppercase; margin-top:10px; margin-bottom:6px; }
+.list-page h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:48px; text-transform:uppercase; margin-top:10px; margin-bottom:6px; }
 .list-page .rule{ width:70px; height:5px; background:var(--gold); margin-bottom:30px; }
 .list-page .intro{ font-size:14px; line-height:1.7; color:#33302a; max-width:620px; margin-bottom:26px; }
 .num-row{ display:grid; grid-template-columns:52px 1fr; gap:18px; padding:16px 0; border-top:1px solid rgba(11,10,8,0.14); }
 .num-row:last-child{ border-bottom:1px solid rgba(11,10,8,0.14); }
 .num-badge{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:24px; color:transparent; -webkit-text-stroke:1.3px var(--flame); }
 .num-row:nth-child(even) .num-badge{ -webkit-text-stroke:1.3px var(--gold); }
+.num-row:nth-child(3n) .num-badge{ -webkit-text-stroke:1.3px var(--teal); }
 .num-text{ font-size:14px; line-height:1.62; color:#33302a; padding-top:2px; }
 
 /* ===================== TABLE (Échéancier) ===================== */
 .table-page{ padding:56px 44px; position:relative; }
-.table-page h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:40px; text-transform:uppercase; margin-top:10px; margin-bottom:6px; }
+.table-page h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:48px; text-transform:uppercase; margin-top:10px; margin-bottom:6px; }
 .table-page .rule{ width:70px; height:5px; background:var(--flame); margin-bottom:22px; }
 .tbl{ width:100%; border-collapse:collapse; }
 .tbl thead th{ text-align:left; font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--paper); background:var(--ink); padding:9px 14px; }
@@ -131,7 +148,7 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 
 /* ===================== GENERIC CONTENT PAGE ===================== */
 .content-page{ padding:64px 44px; position:relative; }
-.content-page h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:42px; text-transform:uppercase; margin-top:10px; margin-bottom:6px; }
+.content-page h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:48px; text-transform:uppercase; margin-top:10px; margin-bottom:6px; }
 .content-page .rule{ width:70px; height:5px; background:var(--flame); margin-bottom:28px; }
 .content-page p{ font-size:15px; line-height:1.8; color:#33302a; max-width:620px; margin-bottom:16px; }
 .content-photo-band{ margin-top:30px; height:250px; position:relative; clip-path:polygon(0 6%,100% 0,100% 100%,0 100%); }
@@ -157,7 +174,7 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .bio-text{ padding:60px 46px; display:flex; flex-direction:column; justify-content:center; position:relative; }
 .bio-text .ring{ width:150px; height:150px; bottom:16px; right:6px; }
 .bio-text .bio-tag{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:13px; letter-spacing:0.05em; color:var(--paper); background:var(--flame); padding:5px 12px; display:inline-block; width:fit-content; transform:rotate(-3deg); margin-bottom:18px; text-transform:uppercase; }
-.bio-text h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:38px; text-transform:uppercase; line-height:0.9; position:relative; z-index:2; }
+.bio-text h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:44px; text-transform:uppercase; line-height:0.9; position:relative; z-index:2; }
 .bio-role{ font-family:'Fraunces',serif; font-style:italic; font-size:15px; color:var(--flame); margin-top:6px; margin-bottom:22px; position:relative; z-index:2; }
 .bio-text p{ font-size:14px; line-height:1.72; color:#33302a; margin-bottom:13px; position:relative; z-index:2; }
 .bio-text p:last-child{ margin-bottom:0; }
@@ -165,7 +182,13 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 /* ===================== BUDGET (placeholder) ===================== */
 .budget-grid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; margin-top:10px; }
 .budget-box{ border:1.5px dashed rgba(11,10,8,0.25); padding:26px 18px; text-align:center; min-height:130px; display:flex; flex-direction:column; justify-content:center; }
+.budget-box:nth-child(1){ border-color:var(--teal); }
+.budget-box:nth-child(2){ border-color:var(--coral); }
+.budget-box:nth-child(3){ border-color:var(--gold); }
 .budget-box .lbl{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:14px; text-transform:uppercase; color:var(--ink); margin-bottom:8px; }
+.budget-box:nth-child(1) .lbl{ color:var(--teal); }
+.budget-box:nth-child(2) .lbl{ color:var(--coral); }
+.budget-box:nth-child(3) .lbl{ color:#B8860B; }
 .budget-box .ph{ font-family:'Fraunces',serif; font-style:italic; font-size:12.5px; color:#8a8579; }
 </style>
 </head>
@@ -174,7 +197,7 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 <!-- P1 — COUVERTURE -->
 <div class="sheet cover">
   <div class="photo-wrap">
-    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/B-boy_breakdancing.jpg" alt="">
+    <img src="https://i.ibb.co/LDFhq5vZ/2026-01-24-21-46-21-IMG-3864.jpg" alt="">
   </div>
   <div class="cover-body">
     <div class="eyebrow">Festival International — Édition 2027</div>
@@ -192,7 +215,7 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 <div class="sheet som">
   <div class="som-photo">
     <div class="duo gold">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Breakdance_cypher.JPG" alt="">
+      <img src="https://i.ibb.co/HfVC3qXQ/2026-01-24-19-23-50-IMG-3945.jpg" alt="">
       <span class="credit">Illustration</span>
     </div>
     <div class="som-tag">Édition 2027</div>
@@ -251,7 +274,7 @@ body{ background:#000; font-family:'Karla', sans-serif; }
     <p class="body-txt">Tout au long de l'année, le festival organise aussi des <strong>cyphers trimestriels</strong>, permettant aux danseurs de s'entraîner, de se confronter à différents niveaux et de progresser en vue du festival — une dynamique continue qui favorise la détection et l'accompagnement des talents locaux.</p>
     <p class="body-txt">Pour cette édition, Wà Kà Jò s'associe au Festival des Collines et devient son rendez-vous d'ouverture, avec un format inclusif où femmes, hommes et enfants évoluent dans un même tableau.</p>
   </div>
-  <div class="duo cut-l" style="order:1;">
+  <div class="duo cut-l indigo" style="order:1;">
     <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Breakdance_cypher.JPG" alt="">
     <span class="credit">Illustration</span>
   </div>
@@ -268,7 +291,13 @@ body{ background:#000; font-family:'Karla', sans-serif; }
       <div class="eyebrow">03 — Vision</div>
     </div>
     <div class="quote-inner">
-      <p>« Faire de Cotonou et du Bénin une destination culturelle incontournable — à terme, un rendez-vous majeur de la danse urbaine en Afrique de l'Ouest. »</p>
+      <div>
+        <p>« Faire de Cotonou et du Bénin une destination culturelle incontournable — à terme, un rendez-vous majeur de la danse urbaine en Afrique de l'Ouest. »</p>
+        <div style="margin-top:20px; display:flex; justify-content:center; gap:36px; flex-wrap:wrap;">
+          <span style="font-family:'Big Shoulders Display',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; font-size:12.5px; color:var(--paper); opacity:0.9;">Ambition — Carrefour africain de la danse urbaine</span>
+          <span style="font-family:'Big Shoulders Display',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; font-size:12.5px; color:var(--paper); opacity:0.9;">Horizon — Afrique de l'Ouest</span>
+        </div>
+      </div>
     </div>
   </div>
   <div class="quote-footer">
@@ -302,22 +331,22 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 <!-- P7 — PROGRAMME -->
 <div class="sheet" style="padding:64px 44px;">
   <div class="eyebrow">05 — Programme</div>
-  <h2 style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:44px; text-transform:uppercase; margin-top:10px; margin-bottom:8px;">Programme prévisionnel</h2>
+  <h2 style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:48px; text-transform:uppercase; margin-top:10px; margin-bottom:8px;">Programme prévisionnel</h2>
   <div style="width:70px; height:5px; background:var(--gold); margin-bottom:36px;"></div>
   <div style="display:grid; grid-template-columns:74px 1fr; gap:20px; padding:20px 0; border-top:1px solid rgba(11,10,8,0.14); align-items:center;">
     <div style="width:52px; height:52px; border-radius:50%; background:var(--flame); color:var(--paper); display:flex; align-items:center; justify-content:center; font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:11px; text-align:center; text-transform:uppercase;">Jour<br>01</div>
     <div><div style="font-weight:700; font-size:16px;">Conférence — Transmettre les danses urbaines</div><div style="font-family:'Fraunces',serif; font-style:italic; font-size:12.5px; color:#8a8579; margin-top:3px;">09h – 11h · Institut français de Cotonou</div></div>
   </div>
   <div style="display:grid; grid-template-columns:74px 1fr; gap:20px; padding:20px 0; border-top:1px solid rgba(11,10,8,0.14); align-items:center;">
-    <div style="width:52px; height:52px; border-radius:50%; background:var(--ink); color:var(--paper); display:flex; align-items:center; justify-content:center; font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:11px; text-align:center; text-transform:uppercase;">Jour<br>02</div>
+    <div style="width:52px; height:52px; border-radius:50%; background:var(--teal); color:var(--paper); display:flex; align-items:center; justify-content:center; font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:11px; text-align:center; text-transform:uppercase;">Jour<br>02</div>
     <div><div style="font-weight:700; font-size:16px;">Workshops — Fondations Breaking &amp; Powermoves</div><div style="font-family:'Fraunces',serif; font-style:italic; font-size:12.5px; color:#8a8579; margin-top:3px;">10h – 14h · Deux ateliers de 2h</div></div>
   </div>
   <div style="display:grid; grid-template-columns:74px 1fr; gap:20px; padding:20px 0; border-top:1px solid rgba(11,10,8,0.14); align-items:center;">
-    <div style="width:52px; height:52px; border-radius:50%; background:var(--flame); color:var(--paper); display:flex; align-items:center; justify-content:center; font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:11px; text-align:center; text-transform:uppercase;">Jour<br>02</div>
+    <div style="width:52px; height:52px; border-radius:50%; background:var(--coral); color:var(--paper); display:flex; align-items:center; justify-content:center; font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:11px; text-align:center; text-transform:uppercase;">Jour<br>02</div>
     <div><div style="font-weight:700; font-size:16px;">Sortie de résidence — « Ascension à Ciel Clos »</div><div style="font-family:'Fraunces',serif; font-style:italic; font-size:12.5px; color:#8a8579; margin-top:3px;">20h – 21h · Spectacle</div></div>
   </div>
   <div style="display:grid; grid-template-columns:74px 1fr; gap:20px; padding:20px 0; border-top:1px solid rgba(11,10,8,0.14); border-bottom:1px solid rgba(11,10,8,0.14); align-items:center;">
-    <div style="width:52px; height:52px; border-radius:50%; background:var(--ink); color:var(--paper); display:flex; align-items:center; justify-content:center; font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:11px; text-align:center; text-transform:uppercase;">Jour<br>03</div>
+    <div style="width:52px; height:52px; border-radius:50%; background:var(--indigo); color:var(--paper); display:flex; align-items:center; justify-content:center; font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:11px; text-align:center; text-transform:uppercase;">Jour<br>03</div>
     <div><div style="font-weight:700; font-size:16px;">Battles — Breaking &amp; All Style</div><div style="font-family:'Fraunces',serif; font-style:italic; font-size:12.5px; color:#8a8579; margin-top:3px;">15h – 19h · Présélections + Main Event</div></div>
   </div>
   <p class="body-txt" style="margin-top:26px; max-width:620px;">Les excursions touristiques se déroulent ensuite sur plusieurs sites, à commencer par Camaté, en suivant la programmation du Festival des Collines.</p>
@@ -327,11 +356,11 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 <div class="sheet">
 <div class="quote-page" style="display:flex; flex-direction:column;">
   <div class="duo gold" style="flex:none; height:230px; min-height:0; clip-path:polygon(0 0, 100% 0, 100% 100%, 0 88%);">
-    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ghana_Dance_-_4803402535.jpg" alt="">
+    <img src="https://i.ibb.co/LDFhq5vZ/2026-01-24-21-46-21-IMG-3864.jpg" alt="">
     <span class="credit">Illustration</span>
     <div style="position:absolute; top:38px; left:38px; z-index:2;">
       <div class="eyebrow" style="color:var(--paper);">06 — Édition 2026</div>
-      <h2 style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:38px; color:var(--paper); text-transform:uppercase; margin-top:6px;">Le point de départ</h2>
+      <h2 style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:44px; color:var(--paper); text-transform:uppercase; margin-top:6px;">Le point de départ</h2>
     </div>
   </div>
   <div style="display:grid; grid-template-columns:repeat(3,1fr); background:var(--ink); margin-top:-1px;">
@@ -346,14 +375,14 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 <!-- P9 — LE FONDATEUR : SMITH ZANNOU -->
 <div class="sheet">
 <div class="bio">
-  <div class="duo cut-r">
-    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kete_Dancer.jpg" alt="">
+  <div class="duo cut-r photo-real">
+    <img src="https://i.ibb.co/bg2PKpRv/IMG-4283.jpg" alt="" style="object-position:center 20%;">
     <span class="credit">Illustration</span>
   </div>
   <div class="bio-text">
     <div class="ring"></div>
-    <div class="eyebrow">07 — Équipe</div>
-    <div class="bio-tag" style="margin-top:14px;">Le fondateur</div>
+    <div class="eyebrow" style="color:var(--teal);">07 — Équipe</div>
+    <div class="bio-tag" style="background:var(--teal); margin-top:14px;">Le fondateur</div>
     <h2>Smith Zannou</h2>
     <div class="bio-role">Créateur &amp; directeur artistique — Wà Kà Jò</div>
     <p>Smith est un danseur béninois passionné par le breaking depuis son plus jeune âge, avec 10 titres de champion d'Afrique à son actif.</p>
@@ -411,11 +440,11 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 <!-- P11 — PUBLICS CIBLÉS -->
 <div class="sheet">
 <div class="content-page">
-  <div class="eyebrow">10 — Audience</div>
+  <div class="eyebrow" style="color:var(--coral);">10 — Audience</div>
   <h2>Publics ciblés</h2>
-  <div class="rule"></div>
+  <div class="rule" style="background:var(--coral);"></div>
   <p>Wà Kà Jò s'adresse aussi bien aux danseurs confirmés et jurys internationaux qu'au grand public et à la jeunesse béninoise, dans une volonté de démocratiser l'accès à la danse urbaine et de créer des ponts entre les générations.</p>
-  <div class="content-photo-band duo">
+  <div class="content-photo-band duo coral">
     <img src="https://commons.wikimedia.org/wiki/Special:FilePath/A_Ghanaian_female_traditional_dancer.jpg" alt="">
     <span class="credit">Illustration</span>
   </div>
@@ -425,12 +454,12 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 <!-- P12 — PARTENAIRES -->
 <div class="sheet">
 <div class="content-page">
-  <div class="eyebrow" style="color:var(--gold);">11 — Soutiens</div>
+  <div class="eyebrow" style="color:var(--indigo);">11 — Soutiens</div>
   <h2>Partenaires</h2>
-  <div class="rule" style="background:var(--gold);"></div>
+  <div class="rule" style="background:var(--indigo);"></div>
   <p>Wà Kà Jò s'appuie sur la collaboration avec l'équipe du Festival des Collines et invite institutions, marques et acteurs culturels à rejoindre cette dynamique en faveur de la danse urbaine béninoise.</p>
   <p>Chaque partenariat renforce la visibilité du festival, la qualité de sa programmation et son ancrage durable à Cotonou.</p>
-  <div class="content-photo-band duo gold">
+  <div class="content-photo-band duo indigo">
     <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Akan_dancers.jpg" alt="">
     <span class="credit">Illustration</span>
   </div>
@@ -440,9 +469,9 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 <!-- P13 — IMPACT SOCIAL & ÉCONOMIQUE -->
 <div class="sheet">
 <div class="content-page">
-  <div class="eyebrow">12 — Retombées</div>
+  <div class="eyebrow" style="color:var(--teal);">12 — Retombées</div>
   <h2>Impact social &amp;<br>économique</h2>
-  <div class="rule"></div>
+  <div class="rule" style="background:var(--teal);"></div>
   <p>Au-delà de la scène, Wà Kà Jò génère une dynamique économique locale — hébergement, restauration, artisanat — et offre à la jeunesse béninoise un tremplin vers la professionnalisation dans les métiers de la danse et de l'événementiel culturel.</p>
   <p>Le festival contribue également à la valorisation du patrimoine touristique et culturel du Bénin, notamment à travers son articulation avec le Festival des Collines.</p>
 </div>
@@ -489,8 +518,8 @@ body{ background:#000; font-family:'Karla', sans-serif; }
     <div class="quote-inner"><p>« Un carrefour africain de la danse urbaine — création, transmission, échanges. »</p></div>
   </div>
   <div class="quote-footer">
-    <div><div class="label">Référent</div><div class="value">[Nom du contact]</div></div>
-    <div style="text-align:right;"><div class="label">Contact</div><div class="value">[e-mail / téléphone]</div></div>
+    <div><div class="label" style="color:var(--teal);">Référent</div><div class="value">[Nom du contact]</div></div>
+    <div style="text-align:right;"><div class="label" style="color:var(--coral);">Contact</div><div class="value">[e-mail / téléphone]</div></div>
   </div>
 </div>
 </div>
