@@ -2,8 +2,8 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Wà Kà Jò — Aperçu combiné</title>
+<meta name="viewport" content="width=880">
+<title>Wà Kà Jò — Dossier de présentation complet</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&family=Big+Shoulders+Display:wght@500;700;900&family=Fraunces:ital,wght@0,600;1,500&family=Karla:wght@400;500;600;700&display=swap');
 
@@ -24,127 +24,154 @@ body{ background:#000; font-family:'Karla', sans-serif; }
   background:var(--paper); color:var(--ink);
   min-height:100vh; position:relative; overflow:hidden;
 }
-.page-num{ position:absolute; bottom:22px; right:26px; font-size:11px; letter-spacing:0.1em; color:rgba(20,19,17,0.4); }
+.page-num{ position:absolute; bottom:22px; right:26px; font-size:11px; letter-spacing:0.1em; color:rgba(20,19,17,0.4); z-index:5; }
 .credit{ position:absolute; bottom:10px; right:14px; font-size:8.5px; letter-spacing:0.05em; color:rgba(246,241,228,0.55); z-index:5; }
+.eyebrow{ font-size:11px; letter-spacing:0.32em; text-transform:uppercase; font-weight:700; color:var(--flame); }
+.ring{ position:absolute; border-radius:50%; border:1.5px solid rgba(11,10,8,0.14); pointer-events:none; }
 
-/* ===================== PAGE 1 — COUVERTURE (du 1er code) ===================== */
+/* ===================== COVER ===================== */
 .cover{ background:var(--ink); color:var(--paper); position:relative; }
 .cover .photo-wrap{ height:56vh; min-height:340px; position:relative; overflow:hidden; }
 .cover .photo-wrap img{ width:100%; height:100%; object-fit:cover; filter:grayscale(15%) contrast(1.05); }
-.cover .photo-wrap::after{
-  content:""; position:absolute; inset:0;
-  background:linear-gradient(to top, var(--ink) 0%, rgba(20,19,17,0.15) 55%, rgba(20,19,17,0.35) 100%);
-}
+.cover .photo-wrap::after{ content:""; position:absolute; inset:0; background:linear-gradient(to top, var(--ink) 0%, rgba(20,19,17,0.15) 55%, rgba(20,19,17,0.35) 100%); }
 .cover-body{ padding:36px 48px 52px; position:relative; }
-.cover-body .eyebrow{ font-size:12px; letter-spacing:0.3em; text-transform:uppercase; color:var(--amber); font-weight:600; }
+.cover-body .eyebrow{ color:var(--amber); font-weight:600; letter-spacing:0.3em; font-size:12px; }
 .cover-body .brand{ font-family:'Anton', sans-serif; font-size:clamp(52px,10vw,92px); line-height:0.86; text-transform:uppercase; margin-top:28px; }
 .cover-body .brand .accent{ color:var(--red); }
 .cover-body .tagline{ margin-top:14px; font-size:17px; font-style:italic; color:rgba(244,239,230,0.75); max-width:420px; }
-.cover-body .cover-footer{
-  display:flex; justify-content:space-between; align-items:flex-end;
-  border-top:1px solid rgba(244,239,230,0.18); padding-top:18px; margin-top:30px;
-  font-size:12px; letter-spacing:0.03em; color:rgba(244,239,230,0.6);
-}
+.cover-body .cover-footer{ display:flex; justify-content:space-between; align-items:flex-end; border-top:1px solid rgba(244,239,230,0.18); padding-top:18px; margin-top:30px; font-size:12px; letter-spacing:0.03em; color:rgba(244,239,230,0.6); }
 .cover-body .cover-footer .big{ font-family:'Anton', sans-serif; font-size:19px; color:var(--paper); }
 
-/* ===================== PAGE 2 — SOMMAIRE (du 2e code) ===================== */
+/* ===================== DUOTONE PHOTOS ===================== */
 .duo{ position:relative; overflow:hidden; background:var(--ink); }
 .duo img{ width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(1) contrast(1.15) brightness(0.92); }
 .duo::after{ content:""; position:absolute; inset:0; background:linear-gradient(150deg, var(--flame) 0%, var(--ink) 115%); mix-blend-mode:color; opacity:0.92; }
 .duo.gold::after{ background:linear-gradient(150deg, var(--gold) 0%, var(--forest) 120%); }
-.ring{ position:absolute; border-radius:50%; border:1.5px solid rgba(11,10,8,0.14); pointer-events:none; }
+.duo.cut-r{ clip-path:polygon(0 0, 100% 0, 100% 82%, 0 100%); }
+.duo.cut-l{ clip-path:polygon(0 18%, 100% 0, 100% 100%, 0 100%); }
 
+/* ===================== SOMMAIRE ===================== */
 .som{ display:grid; grid-template-columns:38% 62%; min-height:100vh; }
 .som-photo{ position:relative; background:var(--ink); }
 .som-photo .duo{ position:absolute; inset:0; }
-.som-vert{
-  position:absolute; left:24px; top:50%; transform:translateY(-50%) rotate(180deg);
-  writing-mode:vertical-rl; font-family:'Big Shoulders Display',sans-serif; font-weight:900;
-  font-size:15px; letter-spacing:0.3em; color:var(--paper); z-index:3; text-transform:uppercase;
-}
-.som-tag{
-  position:absolute; top:28px; left:24px; z-index:3;
-  font-family:'Big Shoulders Display',sans-serif; font-weight:700; font-size:13px;
-  color:var(--paper); background:var(--flame); padding:5px 12px; transform:rotate(-4deg);
-}
-.som-right{ padding:56px 40px 40px; position:relative; }
-.som-right .ring{ width:190px; height:190px; top:-70px; right:-60px; }
-.som-title{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:52px; text-transform:uppercase; line-height:0.85; position:relative; z-index:2; }
+.som-vert{ position:absolute; left:24px; top:50%; transform:translateY(-50%) rotate(180deg); writing-mode:vertical-rl; font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:15px; letter-spacing:0.3em; color:var(--paper); z-index:3; text-transform:uppercase; }
+.som-tag{ position:absolute; top:28px; left:24px; z-index:3; font-family:'Big Shoulders Display',sans-serif; font-weight:700; font-size:13px; color:var(--paper); background:var(--flame); padding:5px 12px; transform:rotate(-4deg); }
+.som-right{ padding:48px 38px 40px; position:relative; }
+.som-right .ring{ width:170px; height:170px; top:-60px; right:-50px; }
+.som-title{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:44px; text-transform:uppercase; line-height:0.85; position:relative; z-index:2; }
 .som-title .thin{ -webkit-text-stroke:1.5px var(--ink); color:transparent; }
-.som-rule{ width:60px; height:4px; background:var(--flame); margin:20px 0 36px; }
+.som-rule{ width:56px; height:4px; background:var(--flame); margin:16px 0 24px; }
 .som-list{ list-style:none; position:relative; z-index:2; }
-.som-list li{
-  display:grid; grid-template-columns:64px 1fr 44px; align-items:center;
-  padding:0; height:56px; border-bottom:1px solid rgba(11,10,8,0.14);
-}
-.som-list .idx{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:30px; color:transparent; -webkit-text-stroke:1.4px var(--flame); }
-.som-list .ttl{ font-weight:700; font-size:16.5px; letter-spacing:0.01em; }
-.som-list .pg{ font-family:'Fraunces',serif; font-style:italic; font-size:13px; text-align:right; color:rgba(11,10,8,0.45); }
-.som-list li:nth-child(even) .idx{ -webkit-text-stroke:1.4px var(--gold); }
+.som-list li{ display:grid; grid-template-columns:46px 1fr 40px; align-items:center; padding:0; height:39px; border-bottom:1px solid rgba(11,10,8,0.14); }
+.som-list .idx{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:20px; color:transparent; -webkit-text-stroke:1.2px var(--flame); }
+.som-list .ttl{ font-weight:700; font-size:13.5px; letter-spacing:0.01em; }
+.som-list .pg{ font-family:'Fraunces',serif; font-style:italic; font-size:11.5px; text-align:right; color:rgba(11,10,8,0.45); }
+.som-list li:nth-child(even) .idx{ -webkit-text-stroke:1.2px var(--gold); }
 
-/* ===================== PAGE 3 — BILAN / "Le point de départ" (du 2e code) ===================== */
-.eyebrow{ font-size:11px; letter-spacing:0.32em; text-transform:uppercase; font-weight:700; color:var(--flame); }
-.bilan{ position:relative; min-height:100vh; display:flex; flex-direction:column; }
-.bilan-photo{ position:relative; flex:1; min-height:300px; clip-path:polygon(0 0, 100% 0, 100% 100%, 0 88%); }
-.bilan-head{ position:absolute; top:38px; left:38px; z-index:2; }
-.bilan-head .eyebrow{ color:var(--paper); }
-.bilan-head h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:40px; color:var(--paper); text-transform:uppercase; margin-top:6px; }
-.stat-panel{ display:grid; grid-template-columns:repeat(3,1fr); background:var(--ink); margin-top:-1px; }
-.stat-cell{ padding:36px 22px; text-align:center; border-right:1px solid rgba(246,241,228,0.15); }
-.stat-cell:last-child{ border-right:none; }
-.stat-cell .n{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:54px; color:var(--gold); line-height:1; }
-.stat-cell .l{ font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--paper); opacity:0.75; margin-top:8px; }
-.bilan-note{ padding:36px 44px; font-size:14.5px; line-height:1.75; color:#33302a; }
+/* ===================== SPLIT (photo + texte) ===================== */
+.split{ display:grid; grid-template-columns:1fr 1fr; min-height:100vh; position:relative; }
+.split .duo{ min-height:340px; }
+.split-text{ padding:60px 44px; display:flex; flex-direction:column; justify-content:center; position:relative; }
+.split-text .ring{ width:140px; height:140px; bottom:20px; right:10px; }
+.split-text h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:40px; text-transform:uppercase; margin-bottom:16px; line-height:0.88; position:relative; z-index:2; }
+.pull{ font-family:'Fraunces',serif; font-style:italic; font-size:19px; line-height:1.5; color:var(--flame); margin-bottom:18px; position:relative; z-index:2; }
+.body-txt{ font-size:14px; line-height:1.72; color:#33302a; position:relative; z-index:2; margin-bottom:12px; }
+.body-txt:last-child{ margin-bottom:0; }
 
-/* ===================== PAGE 4 — ÉQUIPE ORGANISATRICE (du 2e code) ===================== */
-.equipe{ padding:64px 44px; position:relative; }
-.equipe h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:46px; text-transform:uppercase; margin-bottom:8px; }
-.equipe .rule{ width:70px; height:5px; background:var(--flame); margin-bottom:20px; }
-.equipe .body-txt{ font-size:14.5px; line-height:1.75; color:#33302a; margin-bottom:36px; max-width:560px; }
-.team-grid{ display:grid; grid-template-columns:1.3fr 1fr; gap:22px; }
-.team-card.lead .duo{ aspect-ratio:3/4; clip-path:polygon(0 0, 100% 0, 100% 92%, 0 100%); }
-.team-card:not(.lead) .duo{ aspect-ratio:3/4; clip-path:polygon(0 8%, 100% 0, 100% 100%, 0 100%); margin-top:34px; }
-.team-card .name{ font-family:'Big Shoulders Display',sans-serif; font-weight:700; font-size:20px; margin-top:16px; text-transform:uppercase; }
-.team-card .role{ font-family:'Fraunces',serif; font-style:italic; font-size:13.5px; color:#8a8579; margin-top:2px; }
+/* ===== Page 3 (Contexte) : tailles alignées sur la page "Bilan" (page 3) du second document ===== */
+.page-contexte .split-text{ padding:36px 44px; }
+.page-contexte .split-text h2{ font-size:40px; }
+.page-contexte .body-txt{ font-size:14.5px; line-height:1.75; }
 
-/* ===================== MOBILE — police agrandie + mise en page empilée ===================== */
-@media (max-width: 640px){
-  .cover-body .eyebrow{ font-size:14px; }
-  .cover-body .tagline{ font-size:19px; }
-  .cover-body .cover-footer{ font-size:14px; }
-  .cover-body .cover-footer .big{ font-size:22px; }
+/* ===================== QUOTE / FULL BLEED (Vision, Contact) ===================== */
+.quote-page{ position:relative; min-height:100vh; display:flex; flex-direction:column; }
+.quote-page .duo{ flex:1; min-height:300px; position:relative; }
 
-  .som{ grid-template-columns:1fr; }
-  .som-photo{ min-height:260px; }
-  .som-right{ padding:40px 26px; }
-  .som-title{ font-size:44px; }
-  .som-list li{ height:auto; padding:16px 0; grid-template-columns:48px 1fr 44px; }
-  .som-list .idx{ font-size:26px; }
-  .som-list .ttl{ font-size:18px; }
-  .som-list .pg{ font-size:14px; }
+/* Page Vision (03) : image réduite */
+.page-vision .quote-page{ justify-content:center; }
+.page-vision .quote-page .duo{ flex:none; height:280px; min-height:0; margin:0 44px; overflow:hidden; }
+.page-vision .quote-page .duo img{ filter:grayscale(1) contrast(1.15) brightness(0.85) blur(6px); transform:scale(1.08); }
+.page-vision .quote-inner{ align-items:flex-end; padding-bottom:36px; }
+.page-vision .quote-footer{ padding-top:26px; }
+.page-vision .quote-inner{ align-items:flex-end; padding-bottom:12px; }
 
-  .eyebrow{ font-size:13px; }
-  .bilan-head h2{ font-size:32px; }
-  .stat-panel{ grid-template-columns:1fr; }
-  .stat-cell{ border-right:none; border-bottom:1px solid rgba(246,241,228,0.15); padding:26px 22px; }
-  .stat-cell:last-child{ border-bottom:none; }
-  .stat-cell .n{ font-size:44px; }
-  .stat-cell .l{ font-size:12.5px; }
-  .bilan-note{ font-size:16.5px; padding:28px 26px; }
+/* Page Contact (dernière page) : image réduite */
+.page-contact .quote-page{ justify-content:center; }
+.page-contact .quote-page .duo{ flex:none; height:280px; min-height:0; margin:0 44px; }
+.page-contact .quote-footer{ padding-top:26px; }
+.quote-inner{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; padding:50px; z-index:2; }
+.quote-inner p{ font-family:'Fraunces',serif; font-style:italic; font-weight:600; font-size:clamp(24px,4vw,34px); color:var(--paper); text-align:center; max-width:600px; line-height:1.35; }
+.quote-tagband{ position:absolute; top:34px; left:38px; z-index:3; }
+.quote-tagband .eyebrow{ color:var(--paper); }
+.quote-footer{ padding:34px 44px; display:flex; justify-content:space-between; align-items:flex-end; }
+.quote-footer .label{ font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:#8a8579; }
+.quote-footer .value{ font-family:'Big Shoulders Display',sans-serif; font-weight:700; font-size:18px; margin-top:4px; }
 
-  .equipe{ padding:44px 26px; }
-  .equipe h2{ font-size:38px; }
-  .equipe .body-txt{ font-size:16.5px; }
-  .team-grid{ grid-template-columns:1fr; }
-  .team-card:not(.lead) .duo{ margin-top:0; }
-  .team-card .name{ font-size:22px; }
-  .team-card .role{ font-size:15.5px; }
-}
+/* ===================== NUMBERED LIST (Objectifs, Critères) ===================== */
+.list-page{ padding:60px 44px; position:relative; }
+.list-page h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:42px; text-transform:uppercase; margin-top:10px; margin-bottom:6px; }
+.list-page .rule{ width:70px; height:5px; background:var(--gold); margin-bottom:30px; }
+.list-page .intro{ font-size:14px; line-height:1.7; color:#33302a; max-width:620px; margin-bottom:26px; }
+.num-row{ display:grid; grid-template-columns:52px 1fr; gap:18px; padding:16px 0; border-top:1px solid rgba(11,10,8,0.14); }
+.num-row:last-child{ border-bottom:1px solid rgba(11,10,8,0.14); }
+.num-badge{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:24px; color:transparent; -webkit-text-stroke:1.3px var(--flame); }
+.num-row:nth-child(even) .num-badge{ -webkit-text-stroke:1.3px var(--gold); }
+.num-text{ font-size:14px; line-height:1.62; color:#33302a; padding-top:2px; }
+
+/* ===================== TABLE (Échéancier) ===================== */
+.table-page{ padding:56px 44px; position:relative; }
+.table-page h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:40px; text-transform:uppercase; margin-top:10px; margin-bottom:6px; }
+.table-page .rule{ width:70px; height:5px; background:var(--flame); margin-bottom:22px; }
+.tbl{ width:100%; border-collapse:collapse; }
+.tbl thead th{ text-align:left; font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--paper); background:var(--ink); padding:9px 14px; }
+.tbl tbody td{ padding:10px 14px; font-size:12.3px; line-height:1.45; border-bottom:1px solid rgba(11,10,8,0.12); vertical-align:top; color:#33302a; }
+.tbl tbody tr:nth-child(even) td{ background:rgba(232,178,61,0.10); }
+.tbl .period{ font-weight:700; white-space:nowrap; color:var(--ink); }
+.table-note{ margin-top:20px; font-size:13px; line-height:1.65; color:#33302a; max-width:620px; }
+
+/* ===================== GENERIC CONTENT PAGE ===================== */
+.content-page{ padding:64px 44px; position:relative; }
+.content-page h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:42px; text-transform:uppercase; margin-top:10px; margin-bottom:6px; }
+.content-page .rule{ width:70px; height:5px; background:var(--flame); margin-bottom:28px; }
+.content-page p{ font-size:15px; line-height:1.8; color:#33302a; max-width:620px; margin-bottom:16px; }
+.content-photo-band{ margin-top:30px; height:250px; position:relative; clip-path:polygon(0 6%,100% 0,100% 100%,0 100%); }
+
+/* ===================== BIO (Fondateur & équipe) ===================== */
+.bio-page{ padding:56px 44px; position:relative; }
+.bio-page h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:42px; text-transform:uppercase; margin-top:10px; margin-bottom:6px; }
+.bio-page .rule{ width:70px; height:5px; background:var(--flame); margin-bottom:30px; }
+.bio-grid{ display:grid; grid-template-columns:1fr 1fr; gap:30px; }
+.bio-card .duo{ aspect-ratio:4/3; }
+.bio-tag{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:12px; letter-spacing:0.04em; color:var(--paper); background:var(--flame); padding:4px 10px; display:inline-block; width:fit-content; transform:rotate(-3deg); margin-top:16px; text-transform:uppercase; }
+.bio-card:nth-child(2) .bio-tag{ background:var(--gold); }
+.bio-card .name{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:22px; margin-top:10px; text-transform:uppercase; }
+.bio-card .role{ font-family:'Fraunces',serif; font-style:italic; font-size:13px; color:var(--flame); margin-top:2px; margin-bottom:12px; }
+.bio-card:nth-child(2) .role{ color:var(--forest); }
+.bio-card p{ font-size:12.5px; line-height:1.6; color:#33302a; margin-bottom:8px; }
+
+/* ===================== BIO PLEINE PAGE (Fondateur / Compagnie) ===================== */
+.bio{ display:grid; grid-template-columns:1fr 1fr; min-height:100vh; }
+.bio .duo{ min-height:340px; }
+.bio .duo.cut-r{ clip-path:polygon(0 0, 100% 0, 100% 100%, 0 92%); }
+.bio .duo.cut-l{ clip-path:polygon(0 8%, 100% 0, 100% 100%, 0 100%); }
+.bio-text{ padding:60px 46px; display:flex; flex-direction:column; justify-content:center; position:relative; }
+.bio-text .ring{ width:150px; height:150px; bottom:16px; right:6px; }
+.bio-text .bio-tag{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:13px; letter-spacing:0.05em; color:var(--paper); background:var(--flame); padding:5px 12px; display:inline-block; width:fit-content; transform:rotate(-3deg); margin-bottom:18px; text-transform:uppercase; }
+.bio-text h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:38px; text-transform:uppercase; line-height:0.9; position:relative; z-index:2; }
+.bio-role{ font-family:'Fraunces',serif; font-style:italic; font-size:15px; color:var(--flame); margin-top:6px; margin-bottom:22px; position:relative; z-index:2; }
+.bio-text p{ font-size:14px; line-height:1.72; color:#33302a; margin-bottom:13px; position:relative; z-index:2; }
+.bio-text p:last-child{ margin-bottom:0; }
+
+/* ===================== BUDGET (placeholder) ===================== */
+.budget-grid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; margin-top:10px; }
+.budget-box{ border:1.5px dashed rgba(11,10,8,0.25); padding:26px 18px; text-align:center; min-height:130px; display:flex; flex-direction:column; justify-content:center; }
+.budget-box .lbl{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:14px; text-transform:uppercase; color:var(--ink); margin-bottom:8px; }
+.budget-box .ph{ font-family:'Fraunces',serif; font-style:italic; font-size:12.5px; color:#8a8579; }
 </style>
 </head>
 <body>
 
-<!-- PAGE 1 — COUVERTURE (1er code) -->
+<!-- P1 — COUVERTURE -->
 <div class="sheet cover">
   <div class="photo-wrap">
     <img src="https://commons.wikimedia.org/wiki/Special:FilePath/B-boy_breakdancing.jpg" alt="">
@@ -161,7 +188,7 @@ body{ background:#000; font-family:'Karla', sans-serif; }
   <div class="page-num" style="color:rgba(244,239,230,0.5)">01</div>
 </div>
 
-<!-- PAGE 2 — SOMMAIRE (2e code) -->
+<!-- P2 — SOMMAIRE -->
 <div class="sheet som">
   <div class="som-photo">
     <div class="duo gold">
@@ -176,60 +203,296 @@ body{ background:#000; font-family:'Karla', sans-serif; }
     <div class="som-title">SOM<span class="thin">MAIRE</span></div>
     <div class="som-rule"></div>
     <ul class="som-list">
-      <li><span class="idx">01</span><span class="ttl">Contexte &amp; naissance du projet</span><span class="pg">p. 03</span></li>
-      <li><span class="idx">02</span><span class="ttl">Présentation — Édition 2027</span><span class="pg">p. 04</span></li>
-      <li><span class="idx">03</span><span class="ttl">Programme prévisionnel</span><span class="pg">p. 05</span></li>
-      <li><span class="idx">04</span><span class="ttl">Bilan de la première édition</span><span class="pg">p. 06</span></li>
-      <li><span class="idx">05</span><span class="ttl">Équipe organisatrice</span><span class="pg">p. 07</span></li>
-      <li><span class="idx">06</span><span class="ttl">Contact &amp; partenariats</span><span class="pg">p. 08</span></li>
+      <li><span class="idx">01</span><span class="ttl">Contexte</span><span class="pg">p. 03</span></li>
+      <li><span class="idx">02</span><span class="ttl">Présentation</span><span class="pg">p. 04</span></li>
+      <li><span class="idx">03</span><span class="ttl">Vision</span><span class="pg">p. 05</span></li>
+      <li><span class="idx">04</span><span class="ttl">Objectifs</span><span class="pg">p. 06</span></li>
+      <li><span class="idx">05</span><span class="ttl">Programme prévisionnel</span><span class="pg">p. 07</span></li>
+      <li><span class="idx">06</span><span class="ttl">Bilan de la première édition</span><span class="pg">p. 08</span></li>
+      <li><span class="idx">07</span><span class="ttl">Le fondateur — Smith Zannou</span><span class="pg">p. 09</span></li>
+      <li><span class="idx">08</span><span class="ttl">Beeworkers — la compagnie</span><span class="pg">p. 10</span></li>
+      <li><span class="idx">09</span><span class="ttl">Échéancier prévisionnel</span><span class="pg">p. 11</span></li>
+      <li><span class="idx">10</span><span class="ttl">Publics ciblés</span><span class="pg">p. 12</span></li>
+      <li><span class="idx">11</span><span class="ttl">Partenaires</span><span class="pg">p. 13</span></li>
+      <li><span class="idx">12</span><span class="ttl">Impact social &amp; économique</span><span class="pg">p. 14</span></li>
+      <li><span class="idx">13</span><span class="ttl">Critères d'évaluation</span><span class="pg">p. 15</span></li>
+      <li><span class="idx">14</span><span class="ttl">Budget</span><span class="pg">p. 16</span></li>
+      <li><span class="idx">15</span><span class="ttl">Contact</span><span class="pg">p. 17</span></li>
     </ul>
   </div>
 </div>
 
-<!-- PAGE 3 — BILAN / "Le point de départ" (2e code) -->
-<div class="sheet bilan">
-  <div class="bilan-photo">
-    <div class="duo gold" style="position:absolute; inset:0;">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ghana_Dance_-_4803402535.jpg" alt="">
-      <span class="credit">Illustration</span>
-    </div>
-    <div class="bilan-head">
-      <div class="eyebrow">Édition 2026</div>
-      <h2>Le point de départ</h2>
-    </div>
+<!-- P3 — CONTEXTE (tailles alignées sur la page Bilan du second document) -->
+<div class="sheet page-contexte">
+<div class="split">
+  <div class="duo cut-r">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Break_dancer_by_David_Shankbone.JPG" alt="">
+    <span class="credit">Illustration</span>
   </div>
-  <div class="stat-panel">
-    <div class="stat-cell"><div class="n">42</div><div class="l">Danseurs</div></div>
-    <div class="stat-cell"><div class="n">03</div><div class="l">Pays représentés</div></div>
-    <div class="stat-cell"><div class="n">300</div><div class="l">Spectateurs</div></div>
+  <div class="split-text">
+    <div class="ring"></div>
+    <div class="eyebrow">01 — Contexte</div>
+    <h2 style="margin-top:14px;">Un vide à<br>combler</h2>
+    <p class="pull">« Faire de Cotonou un carrefour de la danse urbaine et des échanges culturels. »</p>
+    <p class="body-txt">Au Bénin, la danse urbaine est un vecteur d'expression, de créativité et de dialogue entre les cultures, mais elle manque encore d'événements structurants capables de mettre en valeur les talents et d'accroître sa visibilité.</p>
+    <p class="body-txt">Smith Zannou, avec l'appui de la compagnie Beeworkers — engagée depuis 2013 dans le développement des cultures urbaines —, a créé Wà Kà Jò pour répondre à ce constat et faire de Cotonou un carrefour de la danse urbaine et des échanges culturels.</p>
   </div>
-  <div class="bilan-note">Les danseurs béninois sont venus de tous les horizons du pays — Collines, Cotonou, Calavi — signe d'un ancrage déjà national dès cette première édition, tenue le 24 janvier 2026 au Centre communautaire Eya.</div>
+</div>
 </div>
 
-<!-- PAGE 4 — ÉQUIPE ORGANISATRICE (2e code) -->
-<div class="sheet equipe">
-  <div class="ring" style="width:220px; height:220px; top:-90px; right:-70px;"></div>
-  <h2>Équipe</h2>
-  <div class="rule"></div>
-  <p class="body-txt">Smith Zannou porte le projet avec l'appui de Beeworkers, compagnie engagée depuis 2013 dans le développement des cultures urbaines au Bénin.</p>
-  <div class="team-grid">
-    <div class="team-card lead">
-      <div class="duo">
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kete_Dancer.jpg" alt="">
-        <span class="credit">Illustration</span>
-      </div>
-      <div class="name">Smith Zannou</div>
-      <div class="role">Fondateur — Wà Kà Jò</div>
+<!-- P4 — PRESENTATION -->
+<div class="sheet">
+<div class="split">
+  <div class="split-text" style="order:2;">
+    <div class="ring" style="left:10px; right:auto;"></div>
+    <div class="eyebrow" style="color:var(--gold);">02 — Présentation</div>
+    <h2 style="margin-top:14px;">Danser,<br>transmettre</h2>
+    <p class="body-txt">« Venez danser avec moi » en yoruba. Lancé en janvier 2026, le festival a réuni 42 danseurs du Bénin, du Togo et du Niger, confirmant sa portée internationale.</p>
+    <p class="body-txt">Tout au long de l'année, le festival organise aussi des <strong>cyphers trimestriels</strong>, permettant aux danseurs de s'entraîner, de se confronter à différents niveaux et de progresser en vue du festival — une dynamique continue qui favorise la détection et l'accompagnement des talents locaux.</p>
+    <p class="body-txt">Pour cette édition, Wà Kà Jò s'associe au Festival des Collines et devient son rendez-vous d'ouverture, avec un format inclusif où femmes, hommes et enfants évoluent dans un même tableau.</p>
+  </div>
+  <div class="duo cut-l" style="order:1;">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Breakdance_cypher.JPG" alt="">
+    <span class="credit">Illustration</span>
+  </div>
+</div>
+</div>
+
+<!-- P5 — VISION -->
+<div class="sheet page-vision">
+<div class="quote-page">
+  <div class="duo">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tema_art_festival_4.jpg" alt="">
+    <span class="credit">Illustration</span>
+    <div class="quote-tagband">
+      <div class="eyebrow">03 — Vision</div>
     </div>
-    <div class="team-card">
-      <div class="duo gold">
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lady_dancing.jpg" alt="">
-        <span class="credit">Illustration</span>
-      </div>
-      <div class="name">Beeworkers</div>
-      <div class="role">Compagnie organisatrice</div>
+    <div class="quote-inner">
+      <p>« Faire de Cotonou et du Bénin une destination culturelle incontournable — à terme, un rendez-vous majeur de la danse urbaine en Afrique de l'Ouest. »</p>
     </div>
   </div>
+  <div class="quote-footer">
+    <div><div class="label">Ambition</div><div class="value">Carrefour africain de la danse urbaine</div></div>
+    <div style="text-align:right;"><div class="label">Horizon</div><div class="value">Afrique de l'Ouest</div></div>
+  </div>
+</div>
+</div>
+
+<!-- P6 — OBJECTIFS -->
+<div class="sheet">
+<div class="list-page">
+  <div class="eyebrow">04 — Objectifs</div>
+  <h2>Ce que nous<br>construisons</h2>
+  <div class="rule"></div>
+  <div class="num-row">
+    <div class="num-badge">01</div>
+    <div class="num-text">Structurer un événement international qui valorise les talents et accompagne l'émergence des jeunes danseurs béninois, notamment à travers des <strong>cyphers trimestriels</strong> de préparation et de progression.</div>
+  </div>
+  <div class="num-row">
+    <div class="num-badge">02</div>
+    <div class="num-text">Faire de la danse urbaine un outil de transmission et de mixité culturelle, en réunissant artistes locaux et internationaux autour de battles, cyphers, workshops, conférences et rencontres.</div>
+  </div>
+  <div class="num-row">
+    <div class="num-badge">03</div>
+    <div class="num-text">Créer une dynamique durable autour de Cotonou, en favorisant toute l'année l'apprentissage, les échanges et la collaboration entre danseurs de différentes générations et horizons.</div>
+  </div>
+</div>
+</div>
+
+<!-- P7 — PROGRAMME -->
+<div class="sheet" style="padding:64px 44px;">
+  <div class="eyebrow">05 — Programme</div>
+  <h2 style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:44px; text-transform:uppercase; margin-top:10px; margin-bottom:8px;">Programme prévisionnel</h2>
+  <div style="width:70px; height:5px; background:var(--gold); margin-bottom:36px;"></div>
+  <div style="display:grid; grid-template-columns:74px 1fr; gap:20px; padding:20px 0; border-top:1px solid rgba(11,10,8,0.14); align-items:center;">
+    <div style="width:52px; height:52px; border-radius:50%; background:var(--flame); color:var(--paper); display:flex; align-items:center; justify-content:center; font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:11px; text-align:center; text-transform:uppercase;">Jour<br>01</div>
+    <div><div style="font-weight:700; font-size:16px;">Conférence — Transmettre les danses urbaines</div><div style="font-family:'Fraunces',serif; font-style:italic; font-size:12.5px; color:#8a8579; margin-top:3px;">09h – 11h · Institut français de Cotonou</div></div>
+  </div>
+  <div style="display:grid; grid-template-columns:74px 1fr; gap:20px; padding:20px 0; border-top:1px solid rgba(11,10,8,0.14); align-items:center;">
+    <div style="width:52px; height:52px; border-radius:50%; background:var(--ink); color:var(--paper); display:flex; align-items:center; justify-content:center; font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:11px; text-align:center; text-transform:uppercase;">Jour<br>02</div>
+    <div><div style="font-weight:700; font-size:16px;">Workshops — Fondations Breaking &amp; Powermoves</div><div style="font-family:'Fraunces',serif; font-style:italic; font-size:12.5px; color:#8a8579; margin-top:3px;">10h – 14h · Deux ateliers de 2h</div></div>
+  </div>
+  <div style="display:grid; grid-template-columns:74px 1fr; gap:20px; padding:20px 0; border-top:1px solid rgba(11,10,8,0.14); align-items:center;">
+    <div style="width:52px; height:52px; border-radius:50%; background:var(--flame); color:var(--paper); display:flex; align-items:center; justify-content:center; font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:11px; text-align:center; text-transform:uppercase;">Jour<br>02</div>
+    <div><div style="font-weight:700; font-size:16px;">Sortie de résidence — « Ascension à Ciel Clos »</div><div style="font-family:'Fraunces',serif; font-style:italic; font-size:12.5px; color:#8a8579; margin-top:3px;">20h – 21h · Spectacle</div></div>
+  </div>
+  <div style="display:grid; grid-template-columns:74px 1fr; gap:20px; padding:20px 0; border-top:1px solid rgba(11,10,8,0.14); border-bottom:1px solid rgba(11,10,8,0.14); align-items:center;">
+    <div style="width:52px; height:52px; border-radius:50%; background:var(--ink); color:var(--paper); display:flex; align-items:center; justify-content:center; font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:11px; text-align:center; text-transform:uppercase;">Jour<br>03</div>
+    <div><div style="font-weight:700; font-size:16px;">Battles — Breaking &amp; All Style</div><div style="font-family:'Fraunces',serif; font-style:italic; font-size:12.5px; color:#8a8579; margin-top:3px;">15h – 19h · Présélections + Main Event</div></div>
+  </div>
+  <p class="body-txt" style="margin-top:26px; max-width:620px;">Les excursions touristiques se déroulent ensuite sur plusieurs sites, à commencer par Camaté, en suivant la programmation du Festival des Collines.</p>
+</div>
+
+<!-- P8 — BILAN -->
+<div class="sheet">
+<div class="quote-page" style="display:flex; flex-direction:column;">
+  <div class="duo gold" style="flex:none; height:230px; min-height:0; clip-path:polygon(0 0, 100% 0, 100% 100%, 0 88%);">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ghana_Dance_-_4803402535.jpg" alt="">
+    <span class="credit">Illustration</span>
+    <div style="position:absolute; top:38px; left:38px; z-index:2;">
+      <div class="eyebrow" style="color:var(--paper);">06 — Édition 2026</div>
+      <h2 style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:38px; color:var(--paper); text-transform:uppercase; margin-top:6px;">Le point de départ</h2>
+    </div>
+  </div>
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); background:var(--ink); margin-top:-1px;">
+    <div style="padding:32px 22px; text-align:center; border-right:1px solid rgba(246,241,228,0.15);"><div style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:50px; color:var(--gold); line-height:1;">42</div><div style="font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--paper); opacity:0.75; margin-top:8px;">Danseurs</div></div>
+    <div style="padding:32px 22px; text-align:center; border-right:1px solid rgba(246,241,228,0.15);"><div style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:50px; color:var(--gold); line-height:1;">03</div><div style="font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--paper); opacity:0.75; margin-top:8px;">Pays représentés</div></div>
+    <div style="padding:32px 22px; text-align:center;"><div style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:50px; color:var(--gold); line-height:1;">300</div><div style="font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--paper); opacity:0.75; margin-top:8px;">Spectateurs</div></div>
+  </div>
+  <div style="padding:30px 44px; font-size:14px; line-height:1.75; color:#33302a;">Les danseurs béninois sont venus de tous les horizons du pays — Collines, Cotonou, Calavi — signe d'un ancrage déjà national dès cette première édition, tenue le 24 janvier 2026 au Centre communautaire Eya.</div>
+</div>
+</div>
+
+<!-- P9 — LE FONDATEUR : SMITH ZANNOU -->
+<div class="sheet">
+<div class="bio">
+  <div class="duo cut-r">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kete_Dancer.jpg" alt="">
+    <span class="credit">Illustration</span>
+  </div>
+  <div class="bio-text">
+    <div class="ring"></div>
+    <div class="eyebrow">07 — Équipe</div>
+    <div class="bio-tag" style="margin-top:14px;">Le fondateur</div>
+    <h2>Smith Zannou</h2>
+    <div class="bio-role">Créateur &amp; directeur artistique — Wà Kà Jò</div>
+    <p>Smith est un danseur béninois passionné par le breaking depuis son plus jeune âge, avec 10 titres de champion d'Afrique à son actif.</p>
+    <p>Membre des collectifs Hanfaani et Beeworkers, il contribue au développement de la culture hip-hop au Bénin et à l'international.</p>
+    <p>La transmission occupe une place essentielle dans son parcours. Coach dans le projet Enfants des Collines, il a également effectué en 2025 un service civique international de 6 mois à Saintes, en France, où il a animé des ateliers auprès de différents publics.</p>
+    <p>Créateur et promoteur du Wà Kà Jò Breaking Festival, Smith porte également la direction artistique du projet, en imaginant une programmation qui place la transmission, la création, l'échange et l'évolution du breaking au cœur du festival. À travers cette initiative, il œuvre à faire de Cotonou un véritable carrefour des cultures urbaines en Afrique de l'Ouest.</p>
+  </div>
+</div>
+</div>
+
+<!-- P10 — BEEWORKERS : LA COMPAGNIE -->
+<div class="sheet">
+<div class="bio">
+  <div class="bio-text" style="order:2;">
+    <div class="ring" style="left:6px; right:auto;"></div>
+    <div class="eyebrow" style="color:var(--gold);">08 — Équipe</div>
+    <div class="bio-tag" style="background:var(--gold); margin-top:14px;">La compagnie</div>
+    <h2>Beeworkers</h2>
+    <div class="bio-role" style="color:var(--forest);">Compagnie organisatrice — depuis 2013</div>
+    <p>Beeworkers, compagnie artistique béninoise fondée en 2013, porte le projet Wà Kà Jò.</p>
+    <p>Active depuis plus d'une décennie, Beeworkers œuvre pour le développement de la danse urbaine comme vecteur de transformation sociale et d'engagement citoyen.</p>
+    <p>À travers des actions artistiques, éducatives et communautaires, la compagnie s'est imposée comme un acteur incontournable de la scène hip-hop au Bénin. Elle travaille à professionnaliser les pratiques, à créer des ponts entre artistes et territoires, et à favoriser l'inclusion des jeunes par l'art.</p>
+  </div>
+  <div class="duo cut-l gold" style="order:1;">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lady_dancing.jpg" alt="">
+    <span class="credit">Illustration</span>
+  </div>
+</div>
+</div>
+
+<!-- P11 — ÉCHÉANCIER -->
+<div class="sheet">
+<div class="table-page">
+  <div class="eyebrow">09 — Calendrier</div>
+  <h2>Échéancier prévisionnel</h2>
+  <div class="rule"></div>
+  <table class="tbl">
+    <thead><tr><th style="width:150px;">Période</th><th>Activités principales</th></tr></thead>
+    <tbody>
+      <tr><td class="period">Sept. 2026</td><td>Finalisation du projet, budget, équipe et partenaires</td></tr>
+      <tr><td class="period">Oct. 2026</td><td>Recherche de financements, sponsors et partenaires</td></tr>
+      <tr><td class="period">Nov. 2026</td><td>Cypher + Workshop trimestriel #1 et préparation des danseurs</td></tr>
+      <tr><td class="period">Déc. 2026</td><td>Lancement de la communication et ouverture des inscriptions</td></tr>
+      <tr><td class="period">Janv. 2027</td><td>Cypher + Workshop trimestriel #2, préparation artistique et logistique</td></tr>
+      <tr><td class="period">Fév. 2027</td><td><strong>2ᵉ édition du Wà Kà Jò Breaking Festival</strong> : battles, workshops, conférences, cyphers et activités culturelles</td></tr>
+      <tr><td class="period">Mars – Mai 2027</td><td>Bilan, suivi des danseurs et préparation des prochaines activités</td></tr>
+      <tr><td class="period">Juin 2027</td><td>Cypher + Workshop trimestriel #3</td></tr>
+      <tr><td class="period">Sept. 2027</td><td>Cypher + Workshop trimestriel #4 et préparation de la prochaine édition</td></tr>
+    </tbody>
+  </table>
+  <p class="table-note">Les cyphers et workshops trimestriels permettent de maintenir une activité régulière tout au long de l'année, de renforcer le niveau des danseurs et de les préparer progressivement au festival.</p>
+</div>
+</div>
+
+<!-- P11 — PUBLICS CIBLÉS -->
+<div class="sheet">
+<div class="content-page">
+  <div class="eyebrow">10 — Audience</div>
+  <h2>Publics ciblés</h2>
+  <div class="rule"></div>
+  <p>Wà Kà Jò s'adresse aussi bien aux danseurs confirmés et jurys internationaux qu'au grand public et à la jeunesse béninoise, dans une volonté de démocratiser l'accès à la danse urbaine et de créer des ponts entre les générations.</p>
+  <div class="content-photo-band duo">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/A_Ghanaian_female_traditional_dancer.jpg" alt="">
+    <span class="credit">Illustration</span>
+  </div>
+</div>
+</div>
+
+<!-- P12 — PARTENAIRES -->
+<div class="sheet">
+<div class="content-page">
+  <div class="eyebrow" style="color:var(--gold);">11 — Soutiens</div>
+  <h2>Partenaires</h2>
+  <div class="rule" style="background:var(--gold);"></div>
+  <p>Wà Kà Jò s'appuie sur la collaboration avec l'équipe du Festival des Collines et invite institutions, marques et acteurs culturels à rejoindre cette dynamique en faveur de la danse urbaine béninoise.</p>
+  <p>Chaque partenariat renforce la visibilité du festival, la qualité de sa programmation et son ancrage durable à Cotonou.</p>
+  <div class="content-photo-band duo gold">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Akan_dancers.jpg" alt="">
+    <span class="credit">Illustration</span>
+  </div>
+</div>
+</div>
+
+<!-- P13 — IMPACT SOCIAL & ÉCONOMIQUE -->
+<div class="sheet">
+<div class="content-page">
+  <div class="eyebrow">12 — Retombées</div>
+  <h2>Impact social &amp;<br>économique</h2>
+  <div class="rule"></div>
+  <p>Au-delà de la scène, Wà Kà Jò génère une dynamique économique locale — hébergement, restauration, artisanat — et offre à la jeunesse béninoise un tremplin vers la professionnalisation dans les métiers de la danse et de l'événementiel culturel.</p>
+  <p>Le festival contribue également à la valorisation du patrimoine touristique et culturel du Bénin, notamment à travers son articulation avec le Festival des Collines.</p>
+</div>
+</div>
+
+<!-- P14 — CRITÈRES D'ÉVALUATION -->
+<div class="sheet">
+<div class="list-page">
+  <div class="eyebrow" style="color:var(--gold);">13 — Suivi</div>
+  <h2>Critères<br>d'évaluation</h2>
+  <div class="rule" style="background:var(--gold);"></div>
+  <div class="num-row"><div class="num-badge">01</div><div class="num-text">Nombre et diversité des participants</div></div>
+  <div class="num-row"><div class="num-badge">02</div><div class="num-text">Qualité artistique des activités</div></div>
+  <div class="num-row"><div class="num-badge">03</div><div class="num-text">Participation aux workshops et conférences</div></div>
+  <div class="num-row"><div class="num-badge">04</div><div class="num-text">Satisfaction des artistes, participants et public</div></div>
+  <div class="num-row"><div class="num-badge">05</div><div class="num-text">Visibilité du festival et impact sur les réseaux sociaux</div></div>
+  <div class="num-row"><div class="num-badge">06</div><div class="num-text">Impact sur la transmission et la professionnalisation des danseurs</div></div>
+  <div class="num-row"><div class="num-badge">07</div><div class="num-text">Respect du budget, du calendrier et des objectifs</div></div>
+  <div class="num-row"><div class="num-badge">08</div><div class="num-text">Création de nouveaux partenariats et perspectives pour les prochaines éditions</div></div>
+</div>
+</div>
+
+<!-- P15 — BUDGET -->
+<div class="sheet">
+<div class="content-page">
+  <div class="eyebrow">14 — Financement</div>
+  <h2>Budget</h2>
+  <div class="rule"></div>
+  <p>Le budget prévisionnel détaillé (recettes, dépenses et besoin de financement net) sera intégré à cette section une fois finalisé avec l'équipe.</p>
+  <div class="budget-grid">
+    <div class="budget-box"><div class="lbl">Recettes</div><div class="ph">à compléter</div></div>
+    <div class="budget-box"><div class="lbl">Dépenses</div><div class="ph">à compléter</div></div>
+    <div class="budget-box"><div class="lbl">Besoin de financement</div><div class="ph">à compléter</div></div>
+  </div>
+</div>
+</div>
+
+<!-- P16 — CONTACT -->
+<div class="sheet page-contact">
+<div class="quote-page">
+  <div class="duo">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Akan_dancers.jpg" alt="">
+    <span class="credit">Illustration</span>
+    <div class="quote-inner"><p>« Un carrefour africain de la danse urbaine — création, transmission, échanges. »</p></div>
+  </div>
+  <div class="quote-footer">
+    <div><div class="label">Référent</div><div class="value">[Nom du contact]</div></div>
+    <div style="text-align:right;"><div class="label">Contact</div><div class="value">[e-mail / téléphone]</div></div>
+  </div>
+</div>
 </div>
 
 </body>
