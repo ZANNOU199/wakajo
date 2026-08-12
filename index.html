@@ -226,8 +226,9 @@ body{ background:#000; font-family:'Karla', sans-serif; }
   .quote-page{ min-height:auto; }
   .cover .photo-wrap{ height:300px; }
   .cover-body{ padding:28px 24px 40px; }
-  .cover img[alt="Logo"]{ width:80px; }
-  .cover .brand{ gap:10px !important; }
+  .cover img[alt="Logo"]{ width:52px; flex-shrink:0; }
+  .cover .brand{ gap:8px !important; flex-wrap:nowrap !important; }
+  .cover .brand span:first-child{ font-size:clamp(26px,8vw,36px) !important; white-space:nowrap; }
 
   .list-page, .table-page, .content-page, .bio-page{ padding:40px 24px; }
   .list-page h2, .table-page h2, .content-page h2{ margin-top:6px; }
