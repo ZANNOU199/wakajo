@@ -6,7 +6,7 @@
 <title>Wà Kà Jò — Dossier de présentation complet</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&family=Big+Shoulders+Display:wght@500;700;900&family=Fraunces:ital,wght@0,600;1,500&family=Karla:wght@400;500;600;700&display=swap');
- 
+
 :root{
   --ink:#0B0A08;
   --paper:#F6F1E4;
@@ -25,7 +25,7 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .sheet{
   width:100%; max-width:880px; margin:0 auto 26px;
   background:var(--paper); color:var(--ink);
-  min-height:1080px; position:relative; overflow:hidden;
+  min-height:920px; position:relative; overflow:hidden;
 }
 .page-num{ position:absolute; bottom:22px; right:26px; font-size:11px; letter-spacing:0.1em; color:rgba(20,19,17,0.4); z-index:5; }
 .credit{ position:absolute; bottom:10px; right:14px; font-size:8.5px; letter-spacing:0.05em; color:rgba(246,241,228,0.55); z-index:5; }
@@ -65,7 +65,7 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .duo.cut-l{ clip-path:polygon(0 18%, 100% 0, 100% 100%, 0 100%); }
 
 /* ===================== SOMMAIRE ===================== */
-.som{ display:grid; grid-template-columns:38% 62%; min-height:1080px; }
+.som{ display:grid; grid-template-columns:38% 62%; min-height:920px; }
 .som-photo{ position:relative; background:var(--ink); }
 .som-photo .duo{ position:absolute; inset:0; }
 .som-vert{ position:absolute; left:24px; top:50%; transform:translateY(-50%) rotate(180deg); writing-mode:vertical-rl; font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:15px; letter-spacing:0.3em; color:var(--paper); z-index:3; text-transform:uppercase; }
@@ -84,22 +84,22 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .som-list li:nth-child(3n) .idx{ -webkit-text-stroke:1.2px var(--teal); }
 
 /* ===================== SPLIT (photo + texte) ===================== */
-.split{ display:grid; grid-template-columns:1fr 1fr; min-height:1080px; position:relative; }
+.split{ display:grid; grid-template-columns:1fr 1fr; min-height:920px; position:relative; }
 .split .duo{ min-height:340px; }
 .split-text{ padding:60px 44px; display:flex; flex-direction:column; justify-content:center; position:relative; }
 .split-text .ring{ width:140px; height:140px; bottom:20px; right:10px; }
 .split-text h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:clamp(30px,7vw,48px); text-transform:uppercase; margin-bottom:16px; line-height:0.88; position:relative; z-index:2; }
 .pull{ font-family:'Fraunces',serif; font-style:italic; font-size:19px; line-height:1.5; color:var(--flame); margin-bottom:18px; position:relative; z-index:2; }
-.body-txt{ font-size:14px; line-height:1.72; color:#33302a; position:relative; z-index:2; margin-bottom:12px; }
+.body-txt{ font-size:16px; line-height:1.8; color:#33302a; position:relative; z-index:2; margin-bottom:12px; }
 .body-txt:last-child{ margin-bottom:0; }
 
 /* ===== Page 3 (Contexte) : tailles alignées sur la page "Bilan" (page 3) du second document ===== */
 .page-contexte .split-text{ padding:36px 44px; }
 .page-contexte .split-text h2{ font-size:clamp(30px,7vw,48px); }
-.page-contexte .body-txt{ font-size:14.5px; line-height:1.75; }
+.page-contexte .body-txt{ font-size:17px; line-height:1.8; }
 
 /* ===================== QUOTE / FULL BLEED (Vision, Contact) ===================== */
-.quote-page{ position:relative; min-height:1080px; display:flex; flex-direction:column; }
+.quote-page{ position:relative; min-height:920px; display:flex; flex-direction:column; }
 .quote-page .duo{ flex:1; min-height:300px; position:relative; }
 
 /* Page Vision (03) : image réduite */
@@ -128,12 +128,12 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .list-page h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:clamp(30px,7vw,48px); text-transform:uppercase; margin-top:10px; margin-bottom:6px; }
 .list-page .rule{ width:70px; height:5px; background:var(--gold); margin-bottom:30px; }
 .list-page .intro{ font-size:14px; line-height:1.7; color:#33302a; max-width:620px; margin-bottom:26px; }
-.num-row{ display:grid; grid-template-columns:52px 1fr; gap:18px; padding:16px 0; border-top:1px solid rgba(11,10,8,0.14); }
+.num-row{ display:grid; grid-template-columns:52px 1fr; gap:18px; padding:24px 0; border-top:1px solid rgba(11,10,8,0.14); }
 .num-row:last-child{ border-bottom:1px solid rgba(11,10,8,0.14); }
 .num-badge{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:24px; color:transparent; -webkit-text-stroke:1.3px var(--flame); }
 .num-row:nth-child(even) .num-badge{ -webkit-text-stroke:1.3px var(--gold); }
 .num-row:nth-child(3n) .num-badge{ -webkit-text-stroke:1.3px var(--teal); }
-.num-text{ font-size:14px; line-height:1.62; color:#33302a; padding-top:2px; }
+.num-text{ font-size:16px; line-height:1.75; color:#33302a; padding-top:2px; }
 
 /* ===================== TABLE (Échéancier) ===================== */
 .table-page{ padding:56px 44px; position:relative; }
@@ -150,7 +150,7 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .content-page{ padding:64px 44px; position:relative; }
 .content-page h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:clamp(30px,7vw,48px); text-transform:uppercase; margin-top:10px; margin-bottom:6px; }
 .content-page .rule{ width:70px; height:5px; background:var(--flame); margin-bottom:28px; }
-.content-page p{ font-size:15px; line-height:1.8; color:#33302a; max-width:620px; margin-bottom:16px; }
+.content-page p{ font-size:17px; line-height:1.9; color:#33302a; max-width:640px; margin-bottom:20px; }
 .content-photo-band{ margin-top:30px; height:250px; position:relative; clip-path:polygon(0 6%,100% 0,100% 100%,0 100%); }
 
 /* ===================== BIO (Fondateur & équipe) ===================== */
@@ -167,7 +167,7 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .bio-card p{ font-size:12.5px; line-height:1.6; color:#33302a; margin-bottom:8px; }
 
 /* ===================== BIO PLEINE PAGE (Fondateur / Compagnie) ===================== */
-.bio{ display:grid; grid-template-columns:1fr 1fr; min-height:1080px; }
+.bio{ display:grid; grid-template-columns:1fr 1fr; min-height:920px; }
 .bio .duo{ min-height:340px; }
 .bio .duo.cut-r{ clip-path:polygon(0 0, 100% 0, 100% 100%, 0 92%); }
 .bio .duo.cut-l{ clip-path:polygon(0 8%, 100% 0, 100% 100%, 0 100%); }
@@ -176,7 +176,7 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .bio-text .bio-tag{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:13px; letter-spacing:0.05em; color:var(--paper); background:var(--flame); padding:5px 12px; display:inline-block; width:fit-content; transform:rotate(-3deg); margin-bottom:18px; text-transform:uppercase; }
 .bio-text h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:clamp(28px,6.5vw,44px); text-transform:uppercase; line-height:0.9; position:relative; z-index:2; }
 .bio-role{ font-family:'Fraunces',serif; font-style:italic; font-size:15px; color:var(--flame); margin-top:6px; margin-bottom:22px; position:relative; z-index:2; }
-.bio-text p{ font-size:14px; line-height:1.72; color:#33302a; margin-bottom:13px; position:relative; z-index:2; }
+.bio-text p{ font-size:16px; line-height:1.8; color:#33302a; margin-bottom:13px; position:relative; z-index:2; }
 .bio-text p:last-child{ margin-bottom:0; }
 
 /* ===================== BUDGET (placeholder) ===================== */
@@ -237,6 +237,17 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 
   .duo[style*="height:230px"]{ height:180px !important; }
   .programme-page{ padding:40px 22px !important; }
+
+  .body-txt{ font-size:17px !important; line-height:1.85 !important; }
+  .page-contexte .body-txt{ font-size:17.5px !important; }
+  .content-page p{ font-size:18px !important; line-height:1.95 !important; }
+  .num-text{ font-size:17px !important; line-height:1.8 !important; }
+  .bio-text p{ font-size:17px !important; line-height:1.85 !important; }
+  .pull{ font-size:20px !important; }
+  .table-note{ font-size:14px !important; }
+
+  .split-text, .bio-text{ justify-content:flex-start !important; padding-top:36px !important; }
+  .list-page, .content-page{ padding-bottom:52px !important; }
 }
 </style>
 </head>
