@@ -61,6 +61,9 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .duo.photo-real::after{ display:none; }
 .duo.photo-real img{ filter:contrast(1.05) saturate(1.05) brightness(0.98); }
 .duo.mono::after{ opacity:0; }
+@media (min-width: 721px){
+  .smith-photo img{ transform:scale(0.62); transform-origin:center; }
+}
 .duo.cut-r{ clip-path:polygon(0 0, 100% 0, 100% 82%, 0 100%); }
 .duo.cut-l{ clip-path:polygon(0 18%, 100% 0, 100% 100%, 0 100%); }
 
@@ -89,14 +92,14 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .split-text{ padding:60px 44px; display:flex; flex-direction:column; justify-content:center; position:relative; }
 .split-text .ring{ width:140px; height:140px; bottom:20px; right:10px; }
 .split-text h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:clamp(30px,7vw,48px); text-transform:uppercase; margin-bottom:16px; line-height:0.88; position:relative; z-index:2; }
-.pull{ font-family:'Fraunces',serif; font-style:italic; font-size:19px; line-height:1.5; color:var(--flame); margin-bottom:18px; position:relative; z-index:2; }
-.body-txt{ font-size:16px; line-height:1.8; color:#33302a; position:relative; z-index:2; margin-bottom:12px; }
+.pull{ font-family:'Fraunces',serif; font-style:italic; font-size:22px; line-height:1.55; color:var(--flame); margin-bottom:26px; position:relative; z-index:2; }
+.body-txt{ font-size:18px; line-height:1.9; color:#33302a; position:relative; z-index:2; margin-bottom:20px; }
 .body-txt:last-child{ margin-bottom:0; }
 
 /* ===== Page 3 (Contexte) : tailles alignées sur la page "Bilan" (page 3) du second document ===== */
 .page-contexte .split-text{ padding:36px 44px; }
 .page-contexte .split-text h2{ font-size:clamp(30px,7vw,48px); }
-.page-contexte .body-txt{ font-size:17px; line-height:1.8; }
+.page-contexte .body-txt{ font-size:18.5px; line-height:1.9; }
 
 /* ===================== QUOTE / FULL BLEED (Vision, Contact) ===================== */
 .quote-page{ position:relative; min-height:920px; display:flex; flex-direction:column; }
@@ -175,8 +178,8 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .bio-text .ring{ width:150px; height:150px; bottom:16px; right:6px; }
 .bio-text .bio-tag{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:13px; letter-spacing:0.05em; color:var(--paper); background:var(--flame); padding:5px 12px; display:inline-block; width:fit-content; transform:rotate(-3deg); margin-bottom:18px; text-transform:uppercase; }
 .bio-text h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:clamp(28px,6.5vw,44px); text-transform:uppercase; line-height:0.9; position:relative; z-index:2; }
-.bio-role{ font-family:'Fraunces',serif; font-style:italic; font-size:15px; color:var(--flame); margin-top:6px; margin-bottom:22px; position:relative; z-index:2; }
-.bio-text p{ font-size:16px; line-height:1.8; color:#33302a; margin-bottom:13px; position:relative; z-index:2; }
+.bio-role{ font-family:'Fraunces',serif; font-style:italic; font-size:17px; color:var(--flame); margin-top:10px; margin-bottom:30px; position:relative; z-index:2; }
+.bio-text p{ font-size:18px; line-height:1.9; color:#33302a; margin-bottom:20px; position:relative; z-index:2; }
 .bio-text p:last-child{ margin-bottom:0; }
 
 /* ===================== BUDGET (placeholder) ===================== */
@@ -191,9 +194,20 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .budget-box:nth-child(3) .lbl{ color:#B8860B; }
 .budget-box .ph{ font-family:'Fraunces',serif; font-style:italic; font-size:12.5px; color:#8a8579; }
 
+/* Pages texte (sans photo pleine hauteur) : moins de vide en haut/bas */
+.sheet.text-page{ min-height:640px; }
+.text-page .list-page, .text-page .table-page, .text-page .content-page{ padding-top:64px; padding-bottom:70px; }
+.text-page .num-row{ padding:28px 0; }
+.text-page .num-text{ font-size:17px; line-height:1.85; }
+.text-page .content-page p{ font-size:18px; line-height:1.95; }
+.text-page .table-note{ font-size:15px; line-height:1.75; margin-top:28px; }
+.text-page .tbl tbody td{ padding:13px 14px; font-size:13.5px; }
+.text-page .tbl thead th{ padding:12px 14px; }
+
 /* ===================== RESPONSIVE MOBILE ===================== */
 @media (max-width: 720px){
   .sheet{ min-height:auto; }
+  .sheet.text-page{ min-height:auto; }
   .som{ grid-template-columns:1fr; min-height:auto; }
   .som-photo{ height:220px; }
   .som-right{ padding:32px 24px 36px; }
@@ -238,12 +252,12 @@ body{ background:#000; font-family:'Karla', sans-serif; }
   .duo[style*="height:230px"]{ height:180px !important; }
   .programme-page{ padding:40px 22px !important; }
 
-  .body-txt{ font-size:17px !important; line-height:1.85 !important; }
-  .page-contexte .body-txt{ font-size:17.5px !important; }
+  .body-txt{ font-size:18px !important; line-height:1.9 !important; }
+  .page-contexte .body-txt{ font-size:18.5px !important; }
   .content-page p{ font-size:18px !important; line-height:1.95 !important; }
   .num-text{ font-size:17px !important; line-height:1.8 !important; }
-  .bio-text p{ font-size:17px !important; line-height:1.85 !important; }
-  .pull{ font-size:20px !important; }
+  .bio-text p{ font-size:18px !important; line-height:1.9 !important; }
+  .pull{ font-size:21px !important; }
   .table-note{ font-size:14px !important; }
 
   .split-text, .bio-text{ justify-content:flex-start !important; padding-top:36px !important; }
@@ -367,7 +381,7 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 </div>
 
 <!-- P6 — OBJECTIFS -->
-<div class="sheet">
+<div class="sheet text-page">
 <div class="list-page">
   <div class="eyebrow">04 — Objectifs</div>
   <h2>Ce que nous<br>construisons</h2>
@@ -388,7 +402,7 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 </div>
 
 <!-- P7 — PROGRAMME -->
-<div class="sheet programme-page" style="padding:64px 44px;">
+<div class="sheet programme-page text-page" style="padding:64px 44px;">
   <div class="eyebrow">05 — Programme</div>
   <h2 style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:clamp(28px,6.5vw,48px); text-transform:uppercase; margin-top:10px; margin-bottom:8px;">Programme prévisionnel</h2>
   <div style="width:70px; height:5px; background:var(--gold); margin-bottom:36px;"></div>
@@ -434,8 +448,9 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 <!-- P9 — LE FONDATEUR : SMITH ZANNOU -->
 <div class="sheet">
 <div class="bio">
-  <div class="duo cut-r photo-real" style="align-self:center; height:420px; min-height:0;">
-    <img src="https://i.ibb.co/bg2PKpRv/IMG-4283.jpg" alt="" style="object-position:center 20%;">
+  <div class="duo cut-r photo-real smith-photo" style="position:relative; background:var(--ink);">
+    <img src="https://i.ibb.co/bg2PKpRv/IMG-4283.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 20%; filter:blur(24px) brightness(0.55) saturate(1.1); transform:scale(1.35); z-index:0;">
+    <img src="https://i.ibb.co/bg2PKpRv/IMG-4283.jpg" alt="" style="position:relative; z-index:1; width:100%; height:100%; object-fit:contain; object-position:center 20%; transform:scale(1.2);">
     <span class="credit">Illustration</span>
   </div>
   <div class="bio-text">
@@ -473,7 +488,7 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 </div>
 
 <!-- P11 — ÉCHÉANCIER -->
-<div class="sheet">
+<div class="sheet text-page">
 <div class="table-page">
   <div class="eyebrow">09 — Calendrier</div>
   <h2>Échéancier prévisionnel</h2>
@@ -497,7 +512,7 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 </div>
 
 <!-- P11 — PUBLICS CIBLÉS -->
-<div class="sheet">
+<div class="sheet text-page">
 <div class="content-page">
   <div class="eyebrow" style="color:var(--coral);">10 — Audience</div>
   <h2>Publics ciblés</h2>
@@ -511,7 +526,7 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 </div>
 
 <!-- P12 — PARTENAIRES -->
-<div class="sheet">
+<div class="sheet text-page">
 <div class="content-page">
   <div class="eyebrow" style="color:var(--indigo);">11 — Soutiens</div>
   <h2>Partenaires</h2>
@@ -526,7 +541,7 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 </div>
 
 <!-- P13 — IMPACT SOCIAL & ÉCONOMIQUE -->
-<div class="sheet">
+<div class="sheet text-page">
 <div class="content-page">
   <div class="eyebrow" style="color:var(--teal);">12 — Retombées</div>
   <h2>Impact social &amp;<br>économique</h2>
@@ -537,7 +552,7 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 </div>
 
 <!-- P14 — CRITÈRES D'ÉVALUATION -->
-<div class="sheet">
+<div class="sheet text-page">
 <div class="list-page">
   <div class="eyebrow" style="color:var(--gold);">13 — Suivi</div>
   <h2>Critères<br>d'évaluation</h2>
@@ -554,7 +569,7 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 </div>
 
 <!-- P15 — BUDGET -->
-<div class="sheet">
+<div class="sheet text-page">
 <div class="content-page">
   <div class="eyebrow">14 — Financement</div>
   <h2>Budget</h2>
