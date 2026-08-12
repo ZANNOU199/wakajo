@@ -61,8 +61,9 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .duo.photo-real::after{ display:none; }
 .duo.photo-real img{ filter:contrast(1.05) saturate(1.05) brightness(0.98); }
 .duo.mono::after{ opacity:0; }
+.smith-fg{ transform:scale(1.2); transform-origin:center; }
 @media (min-width: 721px){
-  .smith-photo img{ transform:scale(0.62); transform-origin:center; }
+  .smith-fg{ transform:scale(1.5) translateY(7%); }
 }
 .duo.cut-r{ clip-path:polygon(0 0, 100% 0, 100% 82%, 0 100%); }
 .duo.cut-l{ clip-path:polygon(0 18%, 100% 0, 100% 100%, 0 100%); }
@@ -225,6 +226,8 @@ body{ background:#000; font-family:'Karla', sans-serif; }
   .quote-page{ min-height:auto; }
   .cover .photo-wrap{ height:300px; }
   .cover-body{ padding:28px 24px 40px; }
+  .cover img[alt="Logo"]{ width:80px; }
+  .cover .brand{ gap:10px !important; }
 
   .list-page, .table-page, .content-page, .bio-page{ padding:40px 24px; }
   .list-page h2, .table-page h2, .content-page h2{ margin-top:6px; }
@@ -274,7 +277,10 @@ body{ background:#000; font-family:'Karla', sans-serif; }
   </div>
   <div class="cover-body">
     <div class="eyebrow">Festival International — Édition 2027</div>
-    <div class="brand">Wà Kà <span class="accent">Jò</span></div>
+    <div class="brand" style="display:flex; align-items:center; justify-content:space-between; gap:16px;">
+      <span>Wà Kà <span class="accent">Jò</span></span>
+      <img src="https://i.ibb.co/4gsbSshy/IMG-0356.png" alt="Logo" style="width:150px; height:auto; flex-shrink:0;">
+    </div>
     <div class="tagline">« Venez danser avec moi » — Danse urbaine &amp; mixité culturelle, au cœur de Cotonou</div>
     <div class="cover-footer">
       <div>Une organisation<br><span class="big">Beeworkers</span></div>
@@ -447,10 +453,10 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 
 <!-- P9 — LE FONDATEUR : SMITH ZANNOU -->
 <div class="sheet">
-<div class="bio">
+<div class="bio smith-bio">
   <div class="duo cut-r photo-real smith-photo" style="position:relative; background:var(--ink);">
     <img src="https://i.ibb.co/bg2PKpRv/IMG-4283.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 20%; filter:blur(24px) brightness(0.55) saturate(1.1); transform:scale(1.35); z-index:0;">
-    <img src="https://i.ibb.co/bg2PKpRv/IMG-4283.jpg" alt="" style="position:relative; z-index:1; width:100%; height:100%; object-fit:contain; object-position:center 20%; transform:scale(1.2);">
+    <img class="smith-fg" src="https://i.ibb.co/bg2PKpRv/IMG-4283.jpg" alt="" style="position:relative; z-index:1; width:100%; height:100%; object-fit:contain; object-position:center 20%;">
     <span class="credit">Illustration</span>
   </div>
   <div class="bio-text">
