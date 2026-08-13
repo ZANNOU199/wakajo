@@ -101,6 +101,7 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .page-contexte .split-text{ padding:36px 44px; }
 .page-contexte .split-text h2{ font-size:clamp(30px,7vw,48px); }
 .page-contexte .body-txt{ font-size:18.5px; line-height:1.9; }
+.page-contexte .duo.cut-r{ clip-path:polygon(0 0, 100% 0, 100% 92%, 0 100%); }
 
 /* ===================== QUOTE / FULL BLEED (Vision, Contact) ===================== */
 .quote-page{ position:relative; min-height:920px; display:flex; flex-direction:column; }
@@ -205,6 +206,12 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .text-page .tbl tbody td{ padding:13px 14px; font-size:13.5px; }
 .text-page .tbl thead th{ padding:12px 14px; }
 
+/* ===================== PAGE PRÉSENTATION (texte long, aligné sur la page Contexte) ===================== */
+.page-presentation .split-text{ padding:22px 44px; justify-content:flex-start; }
+.page-presentation .split-text h2{ font-size:clamp(24px,5.5vw,32px); margin-bottom:8px; margin-top:6px; }
+.page-presentation .body-txt{ font-size:16px; line-height:1.42; margin-bottom:7px; }
+.page-presentation .eyebrow{ font-size:12.5px; }
+
 /* ===================== FORMAT A4 FIXE (DESKTOP) =====================
    Chaque .sheet garde le ratio A4 (210 x 297) sur les écrans desktop.
    Les conteneurs internes (som, split, bio, quote-page) sont étirés
@@ -219,69 +226,83 @@ body{ background:#000; font-family:'Karla', sans-serif; }
     height:100%;
     min-height:0;
   }
-}
 
-/* ===================== RESPONSIVE MOBILE ===================== */
-@media (max-width: 720px){
-  .sheet{ min-height:auto; }
-  .sheet.text-page{ min-height:auto; }
-  .som{ grid-template-columns:1fr; min-height:auto; }
-  .som-photo{ height:220px; }
-  .som-right{ padding:32px 24px 36px; }
-  .som-title{ font-size:clamp(30px,9vw,44px); }
+  /* --- Page 3 (Contexte) : remplit toute la hauteur de la page
+     sans centrer le paragraphe (évite le vide au milieu). --- */
+  .page-contexte .split-text{
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    padding-top:56px;
+    padding-bottom:56px;
+  }
 
-  .split{ grid-template-columns:1fr; min-height:auto; }
-  .split .duo{ min-height:220px; height:220px; }
-  .split-text, .bio-text{ order:2 !important; padding:32px 24px; }
-  .split .duo, .bio .duo{ order:1 !important; }
-  .page-contexte .split-text{ padding:28px 24px; }
+  /* --- Page Présentation : même logique que Contexte, texte plus long
+     donc calé en haut avec une taille de police maîtrisée pour que
+     tout tienne dans la hauteur A4 sans être coupé. --- */
+  .page-presentation .split-text{
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    padding-top:18px;
+    padding-bottom:18px;
+    justify-content:flex-start;
+  }
 
-  .bio{ grid-template-columns:1fr; min-height:auto; }
-  .bio .duo{ min-height:220px; height:260px !important; }
+  /* --- Page 2 (Sommaire) : la liste s'étire pour occuper
+     toute la hauteur disponible de la page, au lieu de rester
+     compacte en haut avec du vide en dessous. --- */
+  .som{
+    grid-template-columns:52% 48%;
+  }
+  .som-right{
+    display:flex;
+    flex-direction:column;
+    height:100%;
+  }
+  .som-list{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+  }
+  .som-list li{
+    flex:1;
+    height:auto;
+  }
+  .som-photo .duo img{
+    object-position:center center;
+  }
 
-  .quote-page{ min-height:auto; }
-  .cover .photo-wrap{ height:300px; }
-  .cover-body{ padding:28px 24px 40px; }
-  .cover img[alt="Logo"]{ width:52px; flex-shrink:0; }
-  .cover .brand{ gap:8px !important; flex-wrap:nowrap !important; }
-  .cover .brand span:first-child{ font-size:clamp(26px,8vw,36px) !important; white-space:nowrap; }
+  /* --- Page 1 (Couverture) : supprime le vide en bas de page ---
+     .cover devient une colonne flex qui occupe toute la hauteur A4.
+     .cover-body prend l'espace restant sous la photo et répartit
+     son contenu (haut / footer) sur toute cette hauteur. */
+  .cover{
+    display:flex;
+    flex-direction:column;
+    height:100%;
+  }
+  .cover .photo-wrap{
+    flex:1;
+    height:auto;
+  }
+  .cover-body{
+    flex:none;
+    display:flex;
+    flex-direction:column;
+    padding-top:40px;
+    padding-bottom:80px;
+  }
 
-  .list-page, .table-page, .content-page, .bio-page{ padding:40px 24px; }
-  .list-page h2, .table-page h2, .content-page h2{ margin-top:6px; }
-
-  .num-row{ grid-template-columns:40px 1fr; gap:12px; }
-  .num-badge{ font-size:20px; }
-
-  .tbl thead th{ font-size:10px; padding:7px 8px; }
-  .tbl tbody td{ font-size:11px; padding:8px 8px; }
-  .tbl th:first-child, .tbl td.period{ white-space:normal; }
-
-  .content-photo-band{ height:180px; }
-
-  .quote-inner p{ font-size:clamp(20px,6vw,28px); }
-  .quote-footer{ padding:24px 24px; flex-direction:column; gap:14px; align-items:flex-start; }
-  .quote-footer > div:last-child{ text-align:left !important; }
-
-  .budget-grid{ grid-template-columns:1fr; }
-
-  .stat-cell{ padding:18px 8px !important; }
-  .stat-cell > div:first-child{ font-size:32px !important; }
-  .stat-cell > div:last-child{ font-size:9px !important; }
-  .bilan-note{ padding:22px 24px !important; font-size:13px !important; }
-
-  .duo[style*="height:230px"]{ height:180px !important; }
-  .programme-page{ padding:40px 22px !important; }
-
-  .body-txt{ font-size:18px !important; line-height:1.9 !important; }
-  .page-contexte .body-txt{ font-size:18.5px !important; }
-  .content-page p{ font-size:18px !important; line-height:1.95 !important; }
-  .num-text{ font-size:17px !important; line-height:1.8 !important; }
-  .bio-text p{ font-size:18px !important; line-height:1.9 !important; }
-  .pull{ font-size:21px !important; }
-  .table-note{ font-size:14px !important; }
-
-  .split-text, .bio-text{ justify-content:flex-start !important; padding-top:36px !important; }
-  .list-page, .content-page{ padding-bottom:52px !important; }
+  /* --- Page 3 (Contexte) : remonte le bloc de texte, au lieu
+     de le laisser centré verticalement dans la page. --- */
+  .page-contexte .split-text{
+    justify-content:flex-start;
+    padding-top:70px;
+  }
+  .page-contexte .split-text .pull{
+    margin-bottom:8px;
+  }
 }
 </style>
 </head>
@@ -293,12 +314,14 @@ body{ background:#000; font-family:'Karla', sans-serif; }
     <img src="https://i.ibb.co/LDFhq5vZ/2026-01-24-21-46-21-IMG-3864.jpg" alt="">
   </div>
   <div class="cover-body">
-    <div class="eyebrow">Festival International — Édition 2027</div>
-    <div class="brand" style="display:flex; align-items:center; justify-content:space-between; gap:16px;">
-      <span>Wà Kà <span class="accent">Jò</span></span>
-      <img src="https://i.ibb.co/4gsbSshy/IMG-0356.png" alt="Logo" style="width:150px; height:auto; flex-shrink:0;">
+    <div class="cover-top">
+      <div class="eyebrow">Festival International — Édition 2027</div>
+      <div class="brand" style="display:flex; align-items:center; justify-content:space-between; gap:16px;">
+        <span>Wà Kà <span class="accent">Jò</span></span>
+        <img src="https://i.ibb.co/4gsbSshy/IMG-0356.png" alt="Logo" style="width:150px; height:auto; flex-shrink:0;">
+      </div>
+      <div class="tagline">« Venez danser avec moi » — Danse urbaine &amp; mixité culturelle, au cœur de Cotonou</div>
     </div>
-    <div class="tagline">« Venez danser avec moi » — Danse urbaine &amp; mixité culturelle, au cœur de Cotonou</div>
     <div class="cover-footer">
       <div>Une organisation<br><span class="big">Beeworkers</span></div>
       <div>Février 2027<br>Institut français de Cotonou</div>
@@ -345,34 +368,41 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 <div class="sheet page-contexte">
 <div class="split">
   <div class="duo cut-r">
-    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Break_dancer_by_David_Shankbone.JPG" alt="">
+    <img src="https://i.ibb.co/TxfxNsWX/2026-01-24-19-59-15-IMG-3886.jpg" alt="">
     <span class="credit">Illustration</span>
   </div>
   <div class="split-text">
     <div class="ring"></div>
     <div class="eyebrow">01 — Contexte</div>
-    <h2 style="margin-top:14px;">Un vide à<br>combler</h2>
+    <h2 style="margin-top:36px; margin-bottom:24px;">Un vide à<br>combler</h2>
     <p class="pull">« Faire de Cotonou un carrefour de la danse urbaine et des échanges culturels. »</p>
-    <p class="body-txt">Au Bénin, la danse urbaine est un vecteur d'expression, de créativité et de dialogue entre les cultures, mais elle manque encore d'événements structurants capables de mettre en valeur les talents et d'accroître sa visibilité.</p>
-    <p class="body-txt">Smith Zannou, avec l'appui de la compagnie Beeworkers — engagée depuis 2013 dans le développement des cultures urbaines —, a créé Wà Kà Jò pour répondre à ce constat et faire de Cotonou un carrefour de la danse urbaine et des échanges culturels.</p>
+    <p class="body-txt">Au Bénin, la danse urbaine est un vecteur d'expression, de créativité et de dialogue entre les cultures, mais elle manque encore d'événements structurants capables de mettre en valeur les talents et d'accroître sa visibilité. C'est pour répondre à ce constat que Smith Zannou, avec l'appui de la compagnie Beeworkers — engagée depuis 2013 dans le développement des cultures urbaines —, a créé Wà Kà Jò, avec l'ambition de faire de Cotonou un carrefour de la danse urbaine et des échanges culturels.</p>
   </div>
 </div>
 </div>
 
 <!-- P4 — PRESENTATION -->
-<div class="sheet">
+<div class="sheet page-presentation">
 <div class="split">
-  <div class="split-text" style="order:2;">
-    <div class="ring" style="left:10px; right:auto;"></div>
-    <div class="eyebrow" style="color:var(--gold);">02 — Présentation</div>
-    <h2 style="margin-top:14px;">Danser,<br>transmettre</h2>
-    <p class="body-txt">« Venez danser avec moi » en yoruba. Lancé en janvier 2026, le festival a réuni 42 danseurs du Bénin, du Togo et du Niger, confirmant sa portée internationale.</p>
-    <p class="body-txt">Tout au long de l'année, le festival organise aussi des <strong>cyphers trimestriels</strong>, permettant aux danseurs de s'entraîner, de se confronter à différents niveaux et de progresser en vue du festival — une dynamique continue qui favorise la détection et l'accompagnement des talents locaux.</p>
-    <p class="body-txt">Pour cette édition, Wà Kà Jò s'associe au Festival des Collines et devient son rendez-vous d'ouverture, avec un format inclusif où femmes, hommes et enfants évoluent dans un même tableau.</p>
-  </div>
-  <div class="duo cut-l indigo" style="order:1;">
-    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Breakdance_cypher.JPG" alt="">
+  <div class="duo indigo" style="display:flex; flex-direction:column; padding:0;">
+    <div style="flex:1; overflow:hidden; position:relative; clip-path:polygon(0 8%, 100% 0, 100% 100%, 0 100%);">
+      <img src="https://i.ibb.co/LDz4MCtX/2026-01-24-21-34-21-IMG-3875.jpg" alt="" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;">
+    </div>
+    <div style="flex:1; overflow:hidden; position:relative; background:var(--ink);">
+      <img src="https://i.ibb.co/bRP3NSRK/2026-01-24-20-23-18-IMG-3887.jpg" alt="" style="width:100%; height:100%; object-fit:contain; object-position:center; background:var(--ink); display:block; transform:scale(1.12);">
+    </div>
     <span class="credit">Illustration</span>
+  </div>
+  <div class="split-text">
+    <div class="ring"></div>
+    <div class="eyebrow" style="color:var(--gold);">02 — Présentation</div>
+    <h2 style="margin-top:20px;">Présentation<br>du projet</h2>
+    <p class="body-txt">Wà Kà Jò, qui signifie « Venez danser avec moi » en yoruba, est un festival international de danse urbaine et de mixité culturelle. Il propose un espace de rencontre, de partage, de transmission et de découverte autour de la danse.</p>
+    <p class="body-txt">Lancé en janvier 2026, le festival a réuni dès sa première édition 42 danseurs venus du Bénin, du Togo et du Niger, confirmant sa portée internationale. Fort de cette première expérience, Wà Kà Jò revient en février 2027 avec l'ambition de promouvoir la danse urbaine, favoriser le dialogue entre les cultures et contribuer au rayonnement artistique du Bénin.</p>
+    <p class="body-txt">Tout au long de l'année, le festival organise également des <strong>cyphers trimestriels</strong>, permettant aux danseurs de se préparer, de s'entraîner régulièrement, de se confronter à différents niveaux et de progresser en vue du festival. Ces rencontres créent une dynamique continue autour de Wà Kà Jò et favorisent la détection et l'accompagnement des talents locaux.</p>
+    <p class="body-txt">Pendant plusieurs jours, la programmation mêle battles (Breaking et All Style), workshops, cyphers, conférences, rencontres et excursions touristiques. Le festival se distingue par un format de compétition inclusif où femmes, hommes et enfants évoluent dans un même tableau, la qualité artistique et la performance restant les principaux critères.</p>
+    <p class="body-txt">Pour cette deuxième édition, Wà Kà Jò s'associe à l'équipe du Festival des Collines, avec qui la programmation est co-construite. Cette collaboration fait de Wà Kà Jò le rendez-vous d'ouverture du Festival des Collines et permet aux participants de prolonger leur expérience à travers la danse, la découverte du patrimoine et l'immersion culturelle au cœur du Bénin.</p>
+    <p class="body-txt">À travers cette dynamique, Wà Kà Jò affirme sa volonté de devenir un véritable carrefour africain de la danse urbaine, où création, transmission, préparation, échanges internationaux et valorisation du patrimoine béninois se rencontrent.</p>
   </div>
 </div>
 </div>
