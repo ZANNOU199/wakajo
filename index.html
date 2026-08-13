@@ -205,6 +205,22 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .text-page .tbl tbody td{ padding:13px 14px; font-size:13.5px; }
 .text-page .tbl thead th{ padding:12px 14px; }
 
+/* ===================== FORMAT A4 FIXE (DESKTOP) =====================
+   Chaque .sheet garde le ratio A4 (210 x 297) sur les écrans desktop.
+   Les conteneurs internes (som, split, bio, quote-page) sont étirés
+   sur toute la hauteur de la page via height:100%. */
+@media (min-width: 721px){
+  .sheet{
+    aspect-ratio: 210 / 297;
+    height:auto;
+    min-height:0;
+  }
+  .som, .split, .bio, .quote-page{
+    height:100%;
+    min-height:0;
+  }
+}
+
 /* ===================== RESPONSIVE MOBILE ===================== */
 @media (max-width: 720px){
   .sheet{ min-height:auto; }
