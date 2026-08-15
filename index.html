@@ -223,6 +223,58 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .page-vision-objectifs .num-badge{ font-size:24px; }
 .page-vision-objectifs .num-text{ font-size:16px; line-height:1.75; }
 
+/* ===================== PAGE AUDIENCE + PARTENAIRES (fusionnée) ===================== */
+.audience-partners-page{ display:flex; flex-direction:column; padding:44px; gap:0; }
+.ap-row{ display:flex; align-items:flex-start; gap:32px; flex:1; padding:20px 0; }
+.ap-text{ flex:1; min-width:0; }
+.ap-text h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:clamp(24px,5vw,34px); text-transform:uppercase; margin-top:8px; margin-bottom:6px; }
+.ap-text .rule{ width:60px; height:5px; margin-bottom:16px; }
+.ap-text p{ font-size:14.5px; line-height:1.7; color:#33302a; }
+.ap-square{ flex:1; min-width:0; aspect-ratio:1/1; border-radius:6px; overflow:hidden; position:relative; }
+.ap-logos{ background:var(--paper); border:1.5px solid rgba(11,10,8,0.14); display:flex; align-items:center; justify-content:center; }
+.ap-logo-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; width:100%; height:100%; padding:16px; }
+.ap-logo-box{ border:1.5px dashed rgba(11,10,8,0.28); border-radius:4px; display:flex; align-items:center; justify-content:center; font-family:'Big Shoulders Display',sans-serif; font-weight:700; font-size:12px; text-transform:uppercase; letter-spacing:0.05em; color:#8a8579; }
+
+/* ===================== PAGE IMPACT (design infographique) ===================== */
+.page-impact{ display:flex; flex-direction:column; padding:56px 50px; }
+.impact-header h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:clamp(28px,6vw,42px); text-transform:uppercase; margin-top:8px; margin-bottom:14px; line-height:0.95; }
+.impact-header .rule{ width:70px; height:5px; margin-bottom:18px; }
+.impact-header .body-txt{ font-size:18px; line-height:1.85; margin-bottom:0; max-width:660px; }
+.impact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:32px; }
+.impact-card{ border-top:2px solid rgba(11,10,8,0.14); padding-top:16px; }
+.impact-badge{ width:42px; height:42px; border-radius:50%; color:var(--paper); display:flex; align-items:center; justify-content:center; font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:15px; margin-bottom:12px; }
+.impact-title{ font-family:'Big Shoulders Display',sans-serif; font-weight:800; font-size:19px; text-transform:uppercase; letter-spacing:0.02em; margin-bottom:8px; }
+.impact-text{ font-size:16px; line-height:1.7; color:#33302a; }
+.impact-note{ font-size:18px; line-height:1.85; font-style:italic; color:var(--flame); margin-top:32px; }
+
+/* ===================== PAGE BUDGET (détaillée, style) ===================== */
+.page-budget{ display:flex; flex-direction:column; background:var(--paper); }
+.budget-page-inner{ padding:52px 46px 44px; display:flex; flex-direction:column; flex:1; }
+.budget-page-inner .eyebrow{ color:var(--flame); }
+.budget-page-inner h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:clamp(30px,6.5vw,46px); text-transform:uppercase; margin-top:8px; margin-bottom:8px; line-height:0.92; }
+.budget-page-inner .rule{ width:70px; height:5px; background:var(--flame); margin-bottom:8px; }
+.budget-intro{ font-family:'Fraunces',serif; font-style:italic; font-size:13.5px; color:#8a8579; margin-bottom:26px; max-width:560px; }
+.budget-cols{ display:grid; grid-template-columns:1fr 1fr; gap:36px; }
+.budget-col{ display:flex; flex-direction:column; }
+.budget-col-title{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:14px; text-transform:uppercase; letter-spacing:0.06em; padding-bottom:10px; margin-bottom:6px; border-bottom:2.5px solid currentColor; display:flex; align-items:baseline; gap:8px; }
+.budget-note-inline{ font-family:'Fraunces',serif; font-style:italic; font-weight:400; font-size:10.5px; color:#8a8579; text-transform:none; letter-spacing:0; }
+.budget-tbl{ width:100%; border-collapse:collapse; }
+.budget-tbl-expenses{ height:95%; }
+.budget-tbl-revenue{ height:75%; }
+.budget-tbl tbody tr:nth-child(even) td{ background:rgba(11,10,8,0.035); }
+.budget-tbl td{ font-size:10.5px; padding:5px 7px; color:#33302a; }
+.budget-tbl td:first-child{ padding-left:8px; }
+.budget-tbl td:last-child{ text-align:right; font-weight:700; color:var(--ink); white-space:nowrap; padding-right:8px; font-variant-numeric:tabular-nums; }
+.budget-total-row td{ font-weight:900; border-top:2px solid var(--ink); padding-top:11px; font-size:12px; background:none !important; }
+.budget-total-row td:first-child{ text-transform:uppercase; letter-spacing:0.03em; font-size:11.5px; }
+.budget-summary{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:30px; }
+.budget-summary-cell{ background:var(--ink); color:var(--paper); padding:22px 14px; text-align:center; border-radius:6px; position:relative; overflow:hidden; }
+.budget-summary-highlight{ background:var(--flame); }
+.budget-summary-lbl{ font-family:'Big Shoulders Display',sans-serif; font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; opacity:0.85; margin-bottom:10px; }
+.budget-summary-val{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:26px; letter-spacing:0.01em; }
+.budget-summary-unit{ font-family:'Fraunces',serif; font-style:italic; font-size:10.5px; opacity:0.7; margin-top:4px; }
+.budget-fx-note{ margin-top:20px; font-size:11px; line-height:1.6; color:#8a8579; font-style:italic; text-align:center; }
+
 /* ===================== FORMAT A4 FIXE (DESKTOP) =====================
    Chaque .sheet garde le ratio A4 (210 x 297) sur les écrans desktop.
    Les conteneurs internes (som, split, bio, quote-page) sont étirés
@@ -358,6 +410,41 @@ body{ background:#000; font-family:'Karla', sans-serif; }
     margin-top:auto;
     padding-top:26px;
   }
+
+  /* --- Page Audience + Partenaires (fusionnée) : occupe toute
+     la hauteur A4, chaque section prend la moitié disponible. --- */
+  .audience-partners-page{
+    height:100%;
+    padding:56px 50px;
+  }
+
+  /* --- Page Impact (design infographique) : occupe toute la
+     hauteur A4, la grille de cartes prend l'espace disponible. --- */
+  .page-impact{
+    height:100%;
+    justify-content:flex-start;
+  }
+  .impact-grid{
+    gap:30px 26px;
+    margin-top:auto;
+    margin-bottom:auto;
+  }
+  .impact-card{
+    padding-top:20px;
+  }
+
+  /* --- Page Budget : occupe toute la hauteur A4. --- */
+  .page-budget{
+    height:100%;
+  }
+  .budget-cols{
+    flex:1;
+    min-height:0;
+  }
+  .budget-summary{
+    margin-top:auto;
+    padding-top:32px;
+  }
 }
 </style>
 </head>
@@ -390,7 +477,6 @@ body{ background:#000; font-family:'Karla', sans-serif; }
   <div class="som-photo">
     <div class="duo gold">
       <img src="https://i.ibb.co/HfVC3qXQ/2026-01-24-19-23-50-IMG-3945.jpg" alt="">
-      <span class="credit">Illustration</span>
     </div>
     <div class="som-tag">Édition 2027</div>
     <div class="som-vert">WÀ KÀ JÒ · SOMMAIRE</div>
@@ -410,11 +496,11 @@ body{ background:#000; font-family:'Karla', sans-serif; }
       <li><span class="idx">08</span><span class="ttl">Beeworkers — la compagnie</span><span class="pg">p. 09</span></li>
       <li><span class="idx">09</span><span class="ttl">Échéancier prévisionnel</span><span class="pg">p. 10</span></li>
       <li><span class="idx">10</span><span class="ttl">Publics ciblés</span><span class="pg">p. 11</span></li>
-      <li><span class="idx">11</span><span class="ttl">Partenaires</span><span class="pg">p. 12</span></li>
-      <li><span class="idx">12</span><span class="ttl">Impact social &amp; économique</span><span class="pg">p. 13</span></li>
-      <li><span class="idx">13</span><span class="ttl">Critères d'évaluation</span><span class="pg">p. 14</span></li>
-      <li><span class="idx">14</span><span class="ttl">Budget</span><span class="pg">p. 15</span></li>
-      <li><span class="idx">15</span><span class="ttl">Contact</span><span class="pg">p. 16</span></li>
+      <li><span class="idx">11</span><span class="ttl">Partenaires</span><span class="pg">p. 11</span></li>
+      <li><span class="idx">12</span><span class="ttl">Impact social &amp; économique</span><span class="pg">p. 12</span></li>
+      <li><span class="idx">13</span><span class="ttl">Critères d'évaluation</span><span class="pg">p. 13</span></li>
+      <li><span class="idx">14</span><span class="ttl">Budget</span><span class="pg">p. 14</span></li>
+      <li><span class="idx">15</span><span class="ttl">Contact</span><span class="pg">p. 15</span></li>
     </ul>
   </div>
 </div>
@@ -424,7 +510,6 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 <div class="split">
   <div class="duo cut-r">
     <img src="https://i.ibb.co/TxfxNsWX/2026-01-24-19-59-15-IMG-3886.jpg" alt="">
-    <span class="credit">Illustration</span>
   </div>
   <div class="split-text">
     <div class="ring"></div>
@@ -446,7 +531,6 @@ body{ background:#000; font-family:'Karla', sans-serif; }
     <div style="flex:1; overflow:hidden; position:relative; background:var(--ink);">
       <img src="https://i.ibb.co/bRP3NSRK/2026-01-24-20-23-18-IMG-3887.jpg" alt="" style="width:100%; height:100%; object-fit:contain; object-position:center; background:var(--ink); display:block; transform:scale(1.12);">
     </div>
-    <span class="credit">Illustration</span>
   </div>
   <div class="split-text">
     <div class="ring"></div>
@@ -528,7 +612,6 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 <div class="quote-page" style="display:flex; flex-direction:column;">
   <div class="duo gold" style="flex:1; min-height:0; clip-path:polygon(0 0, 100% 0, 100% 100%, 0 95%);">
     <img src="https://i.ibb.co/VrgnFXg/2026-01-24-20-42-09-IMG-3880.jpg" alt="" style="object-position:center top;">
-    <span class="credit">Illustration</span>
     <div style="position:absolute; top:38px; left:38px; z-index:2;">
       <div class="eyebrow" style="color:var(--paper);">06 — Édition 2026</div>
       <h2 style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:clamp(28px,6.5vw,44px); color:var(--paper); text-transform:uppercase; margin-top:6px;">Le point de départ</h2>
@@ -554,7 +637,6 @@ body{ background:#000; font-family:'Karla', sans-serif; }
     <div style="flex:1; overflow:hidden; position:relative; z-index:1;">
       <img src="https://i.ibb.co/WRMftMV/IMG-4789.jpg" alt="" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;">
     </div>
-    <span class="credit">Illustration</span>
   </div>
   <div class="bio-text">
     <div class="ring"></div>
@@ -572,7 +654,7 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 
 <!-- P10 — BEEWORKERS : LA COMPAGNIE -->
 <div class="sheet">
-<div class="bio" style="grid-template-columns:(57% 43%;">
+<div class="bio" style="grid-template-columns:60% 40%;">
   <div class="bio-text" style="order:2; justify-content:flex-start; padding-top:30px;">
     <div class="ring" style="left:6px; right:auto;"></div>
     <div class="eyebrow" style="color:var(--gold);">08 — Équipe</div>
@@ -586,7 +668,6 @@ body{ background:#000; font-family:'Karla', sans-serif; }
   <div class="duo cut-l photo-real" style="order:1; position:relative; background:var(--ink); overflow:hidden;">
     <img src="https://i.ibb.co/FqBG6RcJ/IMG-6921.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 20%; filter:blur(24px) brightness(0.55) saturate(1.1); transform:scale(1.35); z-index:0;">
     <img src="https://i.ibb.co/FqBG6RcJ/IMG-6921.jpg" alt="" style="position:relative; z-index:1; width:100%; height:100%; object-fit:contain; object-position:center 20%; display:block; transform:scale(1.12);">
-    <span class="credit">Illustration</span>
   </div>
 </div>
 </div>
@@ -615,44 +696,69 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 </div>
 </div>
 
-<!-- P11 — PUBLICS CIBLÉS -->
-<div class="sheet text-page">
-<div class="content-page">
-  <div class="eyebrow" style="color:var(--coral);">10 — Audience</div>
-  <h2>Publics ciblés</h2>
-  <div class="rule" style="background:var(--coral);"></div>
-  <p>Wà Kà Jò s'adresse aussi bien aux danseurs confirmés et jurys internationaux qu'au grand public et à la jeunesse béninoise, dans une volonté de démocratiser l'accès à la danse urbaine et de créer des ponts entre les générations.</p>
-  <div class="content-photo-band duo coral">
-    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/A_Ghanaian_female_traditional_dancer.jpg" alt="">
-    <span class="credit">Illustration</span>
+<!-- P11 — PUBLICS CIBLÉS + PARTENAIRES (fusionnées) -->
+<div class="sheet audience-partners-page">
+  <div class="ap-row">
+    <div class="ap-text">
+      <div class="eyebrow" style="color:var(--coral);">10 — Audience</div>
+      <h2>Publics ciblés</h2>
+      <div class="rule" style="background:var(--coral);"></div>
+      <p>Wà Kà Jò s'adresse aussi bien aux danseurs confirmés et jurys internationaux qu'au grand public et à la jeunesse béninoise, dans une volonté de démocratiser l'accès à la danse urbaine et de créer des ponts entre les générations.</p>
+    </div>
+    <div class="ap-square duo coral">
+      <img src="https://i.ibb.co/n8YLYpKt/2026-01-24-20-22-04-IMG-3888.jpg" alt="">
+    </div>
   </div>
-</div>
-</div>
-
-<!-- P12 — PARTENAIRES -->
-<div class="sheet text-page">
-<div class="content-page">
-  <div class="eyebrow" style="color:var(--indigo);">11 — Soutiens</div>
-  <h2>Partenaires</h2>
-  <div class="rule" style="background:var(--indigo);"></div>
-  <p>Wà Kà Jò s'appuie sur la collaboration avec l'équipe du Festival des Collines et invite institutions, marques et acteurs culturels à rejoindre cette dynamique en faveur de la danse urbaine béninoise.</p>
-  <p>Chaque partenariat renforce la visibilité du festival, la qualité de sa programmation et son ancrage durable à Cotonou.</p>
-  <div class="content-photo-band duo indigo">
-    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Akan_dancers.jpg" alt="">
-    <span class="credit">Illustration</span>
+  <div class="ap-row">
+    <div class="ap-text">
+      <div class="eyebrow" style="color:var(--indigo);">11 — Soutiens</div>
+      <h2>Partenaires</h2>
+      <div class="rule" style="background:var(--indigo);"></div>
+      <p>Wà Kà Jò s'appuie sur la collaboration avec l'équipe du Festival des Collines et invite institutions, marques et acteurs culturels à rejoindre cette dynamique en faveur de la danse urbaine béninoise.</p>
+      <p>Chaque partenariat renforce la visibilité du festival, la qualité de sa programmation et son ancrage durable à Cotonou.</p>
+    </div>
+    <div class="ap-square ap-logos">
+      <div class="ap-logo-grid">
+        <div class="ap-logo-box">Logo</div>
+        <div class="ap-logo-box">Logo</div>
+        <div class="ap-logo-box">Logo</div>
+        <div class="ap-logo-box">Logo</div>
+      </div>
+    </div>
   </div>
-</div>
 </div>
 
 <!-- P13 — IMPACT SOCIAL & ÉCONOMIQUE -->
-<div class="sheet text-page">
-<div class="content-page">
-  <div class="eyebrow" style="color:var(--teal);">12 — Retombées</div>
-  <h2>Impact social &amp;<br>économique</h2>
-  <div class="rule" style="background:var(--teal);"></div>
-  <p>Au-delà de la scène, Wà Kà Jò génère une dynamique économique locale — hébergement, restauration, artisanat — et offre à la jeunesse béninoise un tremplin vers la professionnalisation dans les métiers de la danse et de l'événementiel culturel.</p>
-  <p>Le festival contribue également à la valorisation du patrimoine touristique et culturel du Bénin, notamment à travers son articulation avec le Festival des Collines.</p>
-</div>
+<div class="sheet page-impact">
+  <div class="impact-header">
+    <div class="eyebrow" style="color:var(--teal);">12 — Retombées</div>
+    <h2>Impact social &amp; économique</h2>
+    <div class="rule" style="background:var(--teal);"></div>
+    <p class="body-txt">Au-delà de la scène, Wà Kà Jò génère une dynamique économique locale et offre à la jeunesse béninoise un tremplin vers la professionnalisation dans les métiers de la danse et de l'événementiel culturel.</p>
+  </div>
+  <div class="impact-grid">
+    <div class="impact-card">
+      <div class="impact-badge" style="background:var(--teal);">01</div>
+      <div class="impact-title">Économie locale</div>
+      <div class="impact-text">Hébergement, restauration, artisanat — le festival irrigue directement les acteurs économiques de Cotonou.</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-badge" style="background:var(--gold);">02</div>
+      <div class="impact-title">Professionnalisation</div>
+      <div class="impact-text">Un tremplin concret pour la jeunesse béninoise vers les métiers de la danse et de l'événementiel.</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-badge" style="background:var(--coral);">03</div>
+      <div class="impact-title">Patrimoine &amp; tourisme</div>
+      <div class="impact-text">Une valorisation du patrimoine culturel et touristique du Bénin, en lien avec le Festival des Collines.</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-badge" style="background:var(--indigo);">04</div>
+      <div class="impact-title">Rayonnement</div>
+      <div class="impact-text">Une visibilité internationale accrue pour Cotonou comme carrefour culturel ouest-africain.</div>
+    </div>
+  </div>
+  <p class="body-txt impact-note">Le festival contribue ainsi, édition après édition, à faire de la danse urbaine un véritable levier de développement local.</p>
 </div>
 
 <!-- P14 — CRITÈRES D'ÉVALUATION -->
@@ -673,31 +779,108 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 </div>
 
 <!-- P15 — BUDGET -->
-<div class="sheet text-page">
-<div class="content-page">
+<div class="sheet page-budget">
+<div class="budget-page-inner">
   <div class="eyebrow">14 — Financement</div>
-  <h2>Budget</h2>
+  <h2>Budget prévisionnel</h2>
   <div class="rule"></div>
-  <p>Le budget prévisionnel détaillé (recettes, dépenses et besoin de financement net) sera intégré à cette section une fois finalisé avec l'équipe.</p>
-  <div class="budget-grid">
-    <div class="budget-box"><div class="lbl">Recettes</div><div class="ph">à compléter</div></div>
-    <div class="budget-box"><div class="lbl">Dépenses</div><div class="ph">à compléter</div></div>
-    <div class="budget-box"><div class="lbl">Besoin de financement</div><div class="ph">à compléter</div></div>
+  <p class="budget-intro">Édition 2027 — montants en FCFA, détaillés par poste de dépense et par source de recette.</p>
+
+  <div class="budget-cols">
+    <div class="budget-col">
+      <div class="budget-col-title" style="color:var(--flame);">Dépenses</div>
+      <table class="budget-tbl budget-tbl-expenses">
+        <tbody>
+          <tr><td>Cyphers &amp; workshops trimestriels</td><td>440 000</td></tr>
+          <tr><td>Compétition</td><td>1 400 000</td></tr>
+          <tr><td>Création artistique</td><td>300 000</td></tr>
+          <tr><td>Dépenses du festival</td><td>270 000</td></tr>
+          <tr><td>Cagnotte des gagnants</td><td>500 000</td></tr>
+          <tr><td>Logement des artistes</td><td>1 500 000</td></tr>
+          <tr><td>Restauration</td><td>600 000</td></tr>
+          <tr><td>Déplacements invités internationaux</td><td>730 000</td></tr>
+          <tr><td>Déplacement des invités locaux</td><td>500 000</td></tr>
+          <tr><td>Logistique</td><td>580 000</td></tr>
+          <tr><td>Excursion</td><td>1 500 000</td></tr>
+        </tbody>
+        <tfoot>
+          <tr class="budget-total-row"><td>Total dépenses</td><td>8 320 000</td></tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="budget-col">
+      <div class="budget-col-title" style="color:var(--teal);">Recettes <span class="budget-note-inline">(pistes à valider)</span></div>
+      <table class="budget-tbl budget-tbl-revenue">
+        <tbody>
+          <tr><td>Sponsors &amp; partenaires privés</td><td>2 000 000</td></tr>
+          <tr><td>Subventions institutionnelles / publiques</td><td>1 500 000</td></tr>
+          <tr><td>Billetterie (3 jours de festival)</td><td>500 000</td></tr>
+          <tr><td>Apport propre — Beeworkers</td><td>500 000</td></tr>
+          <tr><td>Dons &amp; mécénat</td><td>300 000</td></tr>
+        </tbody>
+        <tfoot>
+          <tr class="budget-total-row"><td>Total recettes</td><td>4 800 000</td></tr>
+        </tfoot>
+      </table>
+    </div>
   </div>
+
+  <div class="budget-summary">
+    <div class="budget-summary-cell">
+      <div class="budget-summary-lbl">Total dépenses</div>
+      <div class="budget-summary-val">8 320 000</div>
+      <div class="budget-summary-unit">FCFA</div>
+    </div>
+    <div class="budget-summary-cell">
+      <div class="budget-summary-lbl">Total recettes</div>
+      <div class="budget-summary-val">4 800 000</div>
+      <div class="budget-summary-unit">FCFA</div>
+    </div>
+    <div class="budget-summary-cell budget-summary-highlight">
+      <div class="budget-summary-lbl">Besoin de financement</div>
+      <div class="budget-summary-val">3 520 000</div>
+      <div class="budget-summary-unit">FCFA</div>
+    </div>
+  </div>
+  <p class="budget-fx-note">Taux indicatif 1 € ≈ 655,96 FCFA · les recettes sont des pistes proposées à valider ; les danseurs français viennent à titre gracieux (non comptés).</p>
 </div>
 </div>
 
 <!-- P16 — CONTACT -->
-<div class="sheet page-contact">
-<div class="quote-page">
-  <div class="duo">
-    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Akan_dancers.jpg" alt="">
-    <span class="credit">Illustration</span>
-    <div class="quote-inner"><p>« Un carrefour africain de la danse urbaine — création, transmission, échanges. »</p></div>
+<div class="sheet page-contact" style="padding-bottom:26px;">
+<div class="quote-page" style="justify-content:flex-start;">
+  <div class="duo" style="flex:0 0 56%; min-height:0; clip-path:polygon(0 0, 100% 0, 100% 100%, 0 95%);">
+    <img src="https://i.ibb.co/7x7hbdXJ/2026-01-24-22-16-03-IMG-3820.jpg" alt="" style="object-position:center top;">
+    <div style="position:absolute; top:38px; left:38px; z-index:2;">
+      <div class="eyebrow" style="color:var(--paper);">15 — Contact</div>
+      <h2 style="font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:clamp(28px,6.5vw,44px); color:var(--paper); text-transform:uppercase; margin-top:6px;">Restons en contact</h2>
+    </div>
   </div>
-  <div class="quote-footer">
-    <div><div class="label" style="color:var(--teal);">Référent</div><div class="value">[Nom du contact]</div></div>
-    <div style="text-align:right;"><div class="label" style="color:var(--coral);">Contact</div><div class="value">[e-mail / téléphone]</div></div>
+  <div class="contact-closing" style="padding:26px 44px 0; font-family:'Fraunces',serif; font-style:italic; font-size:14.5px; line-height:1.65; color:#33302a;">Porté par Smith Zannou et la compagnie Beeworkers, Wà Kà Jò — « Venez danser avec moi » — est un festival international de danse urbaine et de mixité culturelle né à Cotonou en janvier 2026. Après une première édition réunissant 42 danseurs venus du Bénin, du Togo et du Niger, il revient en février 2027, associé au Festival des Collines, avec battles, workshops, cyphers, conférences et excursions. Porté toute l'année par des cyphers trimestriels, le festival ambitionne de faire de Cotonou un véritable carrefour de la danse urbaine en Afrique de l'Ouest. Pour toute question, proposition de partenariat ou envie de rejoindre l'aventure, l'équipe de Beeworkers se tient à votre disposition — à Cotonou comme à distance.</div>
+  <div class="contact-grid" style="display:flex; justify-content:space-evenly; align-items:flex-start; padding:0 30px; margin-top:22px;">
+    <div style="text-align:center;">
+      <div class="label" style="display:flex; align-items:center; justify-content:center; gap:6px; font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal);">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity="0"/><path d="M3 6l9 7 9-7"/><path d="M3 6h18v12H3z"/></svg>
+        E-mail
+      </div>
+      <div class="value" style="font-family:'Big Shoulders Display',sans-serif; font-weight:700; font-size:14px; margin-top:6px;">chedracza96@gmail.com</div>
+    </div>
+    <div style="text-align:center;">
+      <div class="label" style="display:flex; align-items:center; justify-content:center; gap:6px; font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--coral);">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Téléphone
+      </div>
+      <div class="value" style="font-family:'Big Shoulders Display',sans-serif; font-weight:700; font-size:14px; margin-top:6px;">+229 01 62 08 82 34</div>
+    </div>
+    <div style="text-align:center;">
+      <div class="label" style="display:flex; align-items:center; justify-content:center; gap:6px; font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold);">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </div>
+      <div class="value" style="font-family:'Big Shoulders Display',sans-serif; font-weight:700; font-size:14px; margin-top:6px;">@wakajobattle</div>
+    </div>
+  </div>
+  <div style="height:1px;"></div>
   </div>
 </div>
 </div>
