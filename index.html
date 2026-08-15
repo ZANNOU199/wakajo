@@ -62,7 +62,7 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .duo.photo-real img{ filter:contrast(1.05) saturate(1.05) brightness(0.98); }
 .duo.mono::after{ opacity:0; }
 .smith-fg{ transform:scale(1.2); transform-origin:center; }
-@media (min-width: 721px){
+@media (min-width: 721px), print{
   .smith-fg{ transform:scale(1.5) translateY(7%); }
 }
 .duo.cut-r{ clip-path:polygon(0 0, 100% 0, 100% 82%, 0 100%); }
@@ -226,6 +226,7 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 /* ===================== PAGE AUDIENCE + PARTENAIRES (fusionnée) ===================== */
 .audience-partners-page{ display:flex; flex-direction:column; padding:44px; gap:0; }
 .ap-row{ display:flex; align-items:flex-start; gap:32px; flex:1; padding:20px 0; }
+.ap-row-audience{ flex:0 0 auto; padding-top:0; }
 .ap-text{ flex:1; min-width:0; }
 .ap-text h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:clamp(24px,5vw,34px); text-transform:uppercase; margin-top:8px; margin-bottom:6px; }
 .ap-text .rule{ width:60px; height:5px; margin-bottom:16px; }
@@ -234,6 +235,19 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .ap-logos{ background:var(--paper); border:1.5px solid rgba(11,10,8,0.14); display:flex; align-items:center; justify-content:center; }
 .ap-logo-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; width:100%; height:100%; padding:16px; }
 .ap-logo-box{ border:1.5px dashed rgba(11,10,8,0.28); border-radius:4px; display:flex; align-items:center; justify-content:center; font-family:'Big Shoulders Display',sans-serif; font-weight:700; font-size:12px; text-transform:uppercase; letter-spacing:0.05em; color:#8a8579; }
+
+/* --- Section Partenaires (13 logos) : texte compact en haut,
+   grille de logos en pleine largeur en dessous --- */
+.ap-row-partners{ flex-direction:column; gap:16px; flex:1.3; padding-top:26px; }
+.ap-text-full{ flex:none; }
+.ap-text-full h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:clamp(22px,4.6vw,30px); text-transform:uppercase; margin-top:6px; margin-bottom:6px; }
+.ap-text-full .rule{ width:60px; height:5px; margin-bottom:12px; }
+.ap-text-full p{ font-size:13.5px; line-height:1.6; color:#33302a; max-width:640px; }
+.ap-logo-grid-full{ display:grid; grid-template-columns:repeat(5, 1fr); grid-auto-rows:1fr; gap:10px; flex:1; min-height:0; }
+.ap-logo-grid-full .ap-logo-box{ font-size:11px; }
+.ap-logo-grid-4{ grid-template-columns:repeat(5, 1fr); grid-auto-rows:96px !important; gap:34px 20px; }
+.ap-logo-grid-4 .ap-logo-box{ border:none; background:var(--paper); padding:6px; height:96px; overflow:hidden; }
+.ap-logo-grid-4 .ap-logo-box img{ width:100%; height:100%; object-fit:contain; }
 
 /* ===================== PAGE IMPACT (design infographique) ===================== */
 .page-impact{ display:flex; flex-direction:column; padding:56px 50px; }
@@ -275,11 +289,35 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .budget-summary-unit{ font-family:'Fraunces',serif; font-style:italic; font-size:10.5px; opacity:0.7; margin-top:4px; }
 .budget-fx-note{ margin-top:20px; font-size:11px; line-height:1.6; color:#8a8579; font-style:italic; text-align:center; }
 
+/* ===================== PAGES DÉTAIL BUDGET (sous-catégories) ===================== */
+.page-budget-detail{ display:flex; flex-direction:column; background:var(--paper); }
+.budget-detail-inner{ padding:44px 46px 34px; display:flex; flex-direction:column; flex:1; position:relative; }
+.budget-detail-inner h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:clamp(24px,5.5vw,36px); text-transform:uppercase; margin-top:6px; margin-bottom:8px; }
+.budget-detail-inner .rule{ width:60px; height:5px; margin-bottom:20px; }
+.bd-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px 22px; flex:1; }
+.bd-card{ border:1px solid rgba(11,10,8,0.14); border-radius:6px; padding:12px 14px 10px; display:flex; flex-direction:column; }
+.bd-card-title{ font-family:'Big Shoulders Display',sans-serif; font-weight:800; font-size:12.5px; text-transform:uppercase; letter-spacing:0.03em; color:var(--ink); border-bottom:2px solid var(--flame); padding-bottom:6px; margin-bottom:6px; }
+.bd-card-title span{ font-family:'Fraunces',serif; font-weight:400; font-style:italic; font-size:9.5px; text-transform:none; letter-spacing:0; color:#8a8579; }
+.bd-tbl{ width:100%; border-collapse:collapse; flex:1; }
+.bd-tbl thead th{ text-align:left; font-family:'Big Shoulders Display',sans-serif; font-weight:700; font-size:7.5px; text-transform:uppercase; letter-spacing:0.04em; color:#8a8579; padding:2px 3px; }
+.bd-tbl thead th:not(:first-child){ text-align:right; }
+.bd-tbl tbody td{ font-size:9px; padding:2.5px 3px; color:#33302a; border-top:1px solid rgba(11,10,8,0.08); }
+.bd-tbl tbody td:not(:first-child){ text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.bd-subtotal{ display:flex; justify-content:space-between; font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:11px; text-transform:uppercase; letter-spacing:0.02em; border-top:1.5px solid var(--ink); margin-top:6px; padding-top:6px; }
+.bd-subtotal span{ color:var(--flame); }
+.bd-card-total{ background:var(--ink); border:none; justify-content:center; gap:10px; }
+.bd-card-total .bd-card-title{ color:var(--paper); border-bottom-color:var(--gold); }
+.bd-total-row{ display:flex; justify-content:space-between; align-items:baseline; font-size:12px; color:var(--paper); opacity:0.85; }
+.bd-total-row strong{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:15px; }
+.bd-total-highlight{ opacity:1; color:var(--gold); border-top:1px solid rgba(246,241,228,0.25); margin-top:4px; padding-top:8px; }
+.bd-total-highlight strong{ font-size:19px; }
+.bd-pagenum{ position:absolute; bottom:14px; right:20px; font-family:'Fraunces',serif; font-style:italic; font-size:11px; color:#8a8579; }
+
 /* ===================== FORMAT A4 FIXE (DESKTOP) =====================
    Chaque .sheet garde le ratio A4 (210 x 297) sur les écrans desktop.
    Les conteneurs internes (som, split, bio, quote-page) sont étirés
    sur toute la hauteur de la page via height:100%. */
-@media (min-width: 721px){
+@media (min-width: 721px), print{
   .sheet{
     aspect-ratio: 210 / 297;
     height:auto;
@@ -444,6 +482,41 @@ body{ background:#000; font-family:'Karla', sans-serif; }
   .budget-summary{
     margin-top:auto;
     padding-top:32px;
+  }
+
+  /* --- Pages détail budget : occupent toute la hauteur A4. --- */
+  .page-budget-detail{
+    height:100%;
+  }
+}
+
+/* ===================== IMPRESSION / PDF — 1 page A4 par .sheet, jamais coupée ===================== */
+@page{
+  size: A4;
+  margin: 0;
+}
+@media print{
+  html, body{
+    background: var(--paper);
+    margin:0; padding:0;
+  }
+  .sheet{
+    width:210mm !important;
+    height:297mm !important;
+    max-width:none !important;
+    aspect-ratio:auto !important;
+    margin:0 !important;
+    padding-bottom:3mm !important;
+    box-shadow:none !important;
+    overflow:hidden !important;
+    page-break-after: always;
+    break-after: page;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .sheet:last-of-type{
+    page-break-after: auto;
+    break-after: auto;
   }
 }
 </style>
@@ -698,7 +771,7 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 
 <!-- P11 — PUBLICS CIBLÉS + PARTENAIRES (fusionnées) -->
 <div class="sheet audience-partners-page">
-  <div class="ap-row">
+  <div class="ap-row ap-row-audience">
     <div class="ap-text">
       <div class="eyebrow" style="color:var(--coral);">10 — Audience</div>
       <h2>Publics ciblés</h2>
@@ -709,21 +782,26 @@ body{ background:#000; font-family:'Karla', sans-serif; }
       <img src="https://i.ibb.co/n8YLYpKt/2026-01-24-20-22-04-IMG-3888.jpg" alt="">
     </div>
   </div>
-  <div class="ap-row">
-    <div class="ap-text">
+  <div class="ap-row ap-row-partners">
+    <div class="ap-text-full">
       <div class="eyebrow" style="color:var(--indigo);">11 — Soutiens</div>
       <h2>Partenaires</h2>
       <div class="rule" style="background:var(--indigo);"></div>
       <p>Wà Kà Jò s'appuie sur la collaboration avec l'équipe du Festival des Collines et invite institutions, marques et acteurs culturels à rejoindre cette dynamique en faveur de la danse urbaine béninoise.</p>
-      <p>Chaque partenariat renforce la visibilité du festival, la qualité de sa programmation et son ancrage durable à Cotonou.</p>
     </div>
-    <div class="ap-square ap-logos">
-      <div class="ap-logo-grid">
-        <div class="ap-logo-box">Logo</div>
-        <div class="ap-logo-box">Logo</div>
-        <div class="ap-logo-box">Logo</div>
-        <div class="ap-logo-box">Logo</div>
-      </div>
+    <div class="ap-logo-grid-full ap-logo-grid-4">
+      <div class="ap-logo-box"><img src="https://i.ibb.co/cSrDPDVs/2-2.png" alt="Logo partenaire"></div>
+      <div class="ap-logo-box"><img src="https://i.ibb.co/v49KpWgg/IMG-0494.jpg" alt="Logo partenaire"></div>
+      <div class="ap-logo-box"><img src="https://i.ibb.co/pvqvtbh1/IMG-0493.jpg" alt="Logo partenaire"></div>
+      <div class="ap-logo-box"><img src="https://i.ibb.co/Q7ZVPgjq/76-D395-CA-7011-46-A6-85-CF-EAF7-D134125-E.jpg" alt="Logo partenaire"></div>
+      <div class="ap-logo-box"><img src="https://i.ibb.co/Txj5r4SS/IMG-0492.jpg" alt="Logo partenaire"></div>
+      <div class="ap-logo-box"><img src="https://i.ibb.co/twx9CDNy/LOGO-ROCK-STAR-CREW.jpg" alt="Logo partenaire"></div>
+      <div class="ap-logo-box"><img src="https://i.ibb.co/BHRjd54Z/logo1-black-bg.png" alt="Logo partenaire"></div>
+      <div class="ap-logo-box" style="overflow:visible; position:relative; z-index:1;"><img src="https://i.ibb.co/wZJdd6Jh/IMG-0490.png" alt="Logo partenaire" style="transform:scale(1.3);"></div>
+      <div class="ap-logo-box"><img src="https://i.ibb.co/gZkyQ4sk/IMG-0587.jpg" alt="Logo partenaire"></div>
+      <div class="ap-logo-box"><img src="https://i.ibb.co/jZsM2y8g/logo2-black-bg.png" alt="Logo partenaire"></div>
+      <div class="ap-logo-box"><img src="https://i.ibb.co/hJcS4zRw/LOGO-TOGO-BREAKING-2.jpg" alt="Logo partenaire"></div>
+      <div class="ap-logo-box"><img src="https://i.ibb.co/vxZqrvVn/IMG-0582.png" alt="Logo partenaire"></div>
     </div>
   </div>
 </div>
@@ -814,12 +892,11 @@ body{ background:#000; font-family:'Karla', sans-serif; }
         <tbody>
           <tr><td>Sponsors &amp; partenaires privés</td><td>2 000 000</td></tr>
           <tr><td>Subventions institutionnelles / publiques</td><td>1 500 000</td></tr>
-          <tr><td>Billetterie (3 jours de festival)</td><td>500 000</td></tr>
-          <tr><td>Apport propre — Beeworkers</td><td>500 000</td></tr>
+          <tr><td>Apport propre / autofinancement — Beeworkers</td><td>500 000</td></tr>
           <tr><td>Dons &amp; mécénat</td><td>300 000</td></tr>
         </tbody>
         <tfoot>
-          <tr class="budget-total-row"><td>Total recettes</td><td>4 800 000</td></tr>
+          <tr class="budget-total-row"><td>Total recettes</td><td>4 300 000</td></tr>
         </tfoot>
       </table>
     </div>
@@ -833,23 +910,201 @@ body{ background:#000; font-family:'Karla', sans-serif; }
     </div>
     <div class="budget-summary-cell">
       <div class="budget-summary-lbl">Total recettes</div>
-      <div class="budget-summary-val">4 800 000</div>
+      <div class="budget-summary-val">4 300 000</div>
       <div class="budget-summary-unit">FCFA</div>
     </div>
     <div class="budget-summary-cell budget-summary-highlight">
       <div class="budget-summary-lbl">Besoin de financement</div>
-      <div class="budget-summary-val">3 520 000</div>
+      <div class="budget-summary-val">4 020 000</div>
       <div class="budget-summary-unit">FCFA</div>
     </div>
   </div>
-  <p class="budget-fx-note">Taux indicatif 1 € ≈ 655,96 FCFA · les recettes sont des pistes proposées à valider ; les danseurs français viennent à titre gracieux (non comptés).</p>
+  <p class="budget-fx-note">Taux indicatif 1 € ≈ 655,96 FCFA · les recettes sont des pistes proposées à valider ; les danseurs français viennent à titre gracieux (non comptés dans le budget).</p>
 </div>
 </div>
+
+<!-- P15bis — BUDGET : DÉTAIL DES DÉPENSES (partie 1) -->
+<div class="sheet page-budget-detail">
+<div class="budget-detail-inner">
+  <div class="eyebrow" style="color:var(--flame);">14 — Financement (suite)</div>
+  <h2>Détail des dépenses</h2>
+  <div class="rule" style="background:var(--flame);"></div>
+
+  <div class="bd-grid">
+    <div class="bd-card">
+      <div class="bd-card-title">Cyphers &amp; workshops trimestriels <span>(4 sessions/an)</span></div>
+      <table class="bd-tbl">
+        <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
+        <tbody>
+          <tr><td>Espace public (cypher / workshop)</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Intervenant / formateur breaking</td><td>40 000</td><td>4</td><td>160 000</td></tr>
+          <tr><td>Sonorisation &amp; matériel</td><td>30 000</td><td>4</td><td>120 000</td></tr>
+          <tr><td>Communication &amp; affiches</td><td>15 000</td><td>4</td><td>60 000</td></tr>
+          <tr><td>Collation participants</td><td>25 000</td><td>4</td><td>100 000</td></tr>
+        </tbody>
+      </table>
+      <div class="bd-subtotal">Sous-total <span>440 000 FCFA</span></div>
+    </div>
+
+    <div class="bd-card">
+      <div class="bd-card-title">Compétition</div>
+      <table class="bd-tbl">
+        <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
+        <tbody>
+          <tr><td>Graphiste</td><td>3 000</td><td>100</td><td>300 000</td></tr>
+          <tr><td>Photographes</td><td>75 000</td><td>4</td><td>300 000</td></tr>
+          <tr><td>Réalisateur (captation vidéo)</td><td>—</td><td>—</td><td>300 000</td></tr>
+          <tr><td>Jurys (5 jurys, deux catégories)</td><td>—</td><td>—</td><td>500 000</td></tr>
+        </tbody>
+      </table>
+      <div class="bd-subtotal">Sous-total <span>1 400 000 FCFA</span></div>
+    </div>
+
+    <div class="bd-card">
+      <div class="bd-card-title">Création artistique</div>
+      <table class="bd-tbl">
+        <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
+        <tbody>
+          <tr><td>Ascension à ciel clos</td><td>—</td><td>—</td><td>300 000</td></tr>
+        </tbody>
+      </table>
+      <div class="bd-subtotal">Sous-total <span>300 000 FCFA</span></div>
+    </div>
+
+    <div class="bd-card">
+      <div class="bd-card-title">Dépenses du festival</div>
+      <table class="bd-tbl">
+        <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
+        <tbody>
+          <tr><td>Trophées</td><td>—</td><td>—</td><td>100 000</td></tr>
+          <tr><td>Location tapis</td><td>—</td><td>—</td><td>50 000</td></tr>
+          <tr><td>Impression lettres d'invitation</td><td>—</td><td>—</td><td>20 000</td></tr>
+          <tr><td>Badges</td><td>—</td><td>—</td><td>15 000</td></tr>
+          <tr><td>Bannières jurys &amp; tapis</td><td>—</td><td>—</td><td>25 000</td></tr>
+          <tr><td>Eau</td><td>—</td><td>—</td><td>15 000</td></tr>
+          <tr><td>Déplacement organisation</td><td>—</td><td>—</td><td>30 000</td></tr>
+          <tr><td>Attestations de participation</td><td>—</td><td>—</td><td>15 000</td></tr>
+        </tbody>
+      </table>
+      <div class="bd-subtotal">Sous-total <span>270 000 FCFA</span></div>
+    </div>
+
+    <div class="bd-card">
+      <div class="bd-card-title">Cagnotte des gagnants</div>
+      <table class="bd-tbl">
+        <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
+        <tbody>
+          <tr><td>Breaking — 1ère place</td><td>—</td><td>—</td><td>150 000</td></tr>
+          <tr><td>Breaking — 2ème place</td><td>—</td><td>—</td><td>100 000</td></tr>
+          <tr><td>All Style — 1ère place</td><td>—</td><td>—</td><td>150 000</td></tr>
+          <tr><td>All Style — 2ème place</td><td>—</td><td>—</td><td>100 000</td></tr>
+        </tbody>
+      </table>
+      <div class="bd-subtotal">Sous-total <span>500 000 FCFA</span></div>
+    </div>
+
+    <div class="bd-card">
+      <div class="bd-card-title">Logement des artistes</div>
+      <table class="bd-tbl">
+        <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
+        <tbody>
+          <tr><td>Hébergement artistes invités (forfait)</td><td>—</td><td>—</td><td>1 500 000</td></tr>
+        </tbody>
+      </table>
+      <div class="bd-subtotal">Sous-total <span>1 500 000 FCFA</span></div>
+    </div>
+  </div>
+  <div class="bd-pagenum">1/2</div>
+</div>
+</div>
+
+<!-- P15ter — BUDGET : DÉTAIL DES DÉPENSES (partie 2) -->
+<div class="sheet page-budget-detail">
+<div class="budget-detail-inner">
+  <div class="eyebrow" style="color:var(--flame);">14 — Financement (suite)</div>
+  <h2>Détail des dépenses</h2>
+  <div class="rule" style="background:var(--flame);"></div>
+
+  <div class="bd-grid">
+    <div class="bd-card">
+      <div class="bd-card-title">Restauration <span>(3 jours de festival)</span></div>
+      <table class="bd-tbl">
+        <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
+        <tbody>
+          <tr><td>Repas (5 000 FCFA/pers./jour — 40 pers. × 3 j)</td><td>5 000</td><td>120</td><td>600 000</td></tr>
+        </tbody>
+      </table>
+      <div class="bd-subtotal">Sous-total <span>600 000 FCFA</span></div>
+    </div>
+
+    <div class="bd-card">
+      <div class="bd-card-title">Déplacements invités internationaux</div>
+      <table class="bd-tbl">
+        <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
+        <tbody>
+          <tr><td>Togo (4 danseurs)</td><td>35 000</td><td>4</td><td>140 000</td></tr>
+          <tr><td>Ghana (3 danseurs)</td><td>70 000</td><td>3</td><td>210 000</td></tr>
+          <tr><td>Nigéria (3 danseurs)</td><td>60 000</td><td>3</td><td>180 000</td></tr>
+          <tr><td>Côte d'Ivoire (2 danseurs)</td><td>100 000</td><td>2</td><td>200 000</td></tr>
+          <tr><td>France — à titre gracieux</td><td>—</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+      <div class="bd-subtotal">Sous-total <span>730 000 FCFA</span></div>
+    </div>
+
+    <div class="bd-card">
+      <div class="bd-card-title">Déplacement des invités locaux</div>
+      <table class="bd-tbl">
+        <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
+        <tbody>
+          <tr><td>Transferts &amp; accompagnement (forfait)</td><td>—</td><td>—</td><td>500 000</td></tr>
+        </tbody>
+      </table>
+      <div class="bd-subtotal">Sous-total <span>500 000 FCFA</span></div>
+    </div>
+
+    <div class="bd-card">
+      <div class="bd-card-title">Logistique</div>
+      <table class="bd-tbl">
+        <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
+        <tbody>
+          <tr><td>DJ</td><td>—</td><td>—</td><td>100 000</td></tr>
+          <tr><td>Maître de cérémonie (MC)</td><td>—</td><td>—</td><td>100 000</td></tr>
+          <tr><td>Équipe technique informatique</td><td>—</td><td>—</td><td>300 000</td></tr>
+          <tr><td>Hôtesses</td><td>—</td><td>—</td><td>50 000</td></tr>
+          <tr><td>Collation invités</td><td>—</td><td>—</td><td>30 000</td></tr>
+        </tbody>
+      </table>
+      <div class="bd-subtotal">Sous-total <span>580 000 FCFA</span></div>
+    </div>
+
+    <div class="bd-card">
+      <div class="bd-card-title">Excursion</div>
+      <table class="bd-tbl">
+        <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
+        <tbody>
+          <tr><td>Transport groupe vers Camaté (Festival des Collines)</td><td>—</td><td>—</td><td>1 500 000</td></tr>
+        </tbody>
+      </table>
+      <div class="bd-subtotal">Sous-total <span>1 500 000 FCFA</span></div>
+    </div>
+
+    <div class="bd-card bd-card-total">
+      <div class="bd-card-title">Total général</div>
+      <div class="bd-total-row"><span>Total dépenses</span><strong>8 320 000 FCFA</strong></div>
+      <div class="bd-total-row"><span>Total recettes</span><strong>4 300 000 FCFA</strong></div>
+      <div class="bd-total-row bd-total-highlight"><span>Besoin de financement</span><strong>4 020 000 FCFA</strong></div>
+    </div>
+  </div>
+  <div class="bd-pagenum">2/2</div>
+</div>
+</div>
+
 
 <!-- P16 — CONTACT -->
 <div class="sheet page-contact" style="padding-bottom:26px;">
 <div class="quote-page" style="justify-content:flex-start;">
-  <div class="duo" style="flex:0 0 56%; min-height:0; clip-path:polygon(0 0, 100% 0, 100% 100%, 0 95%);">
+  <div class="duo photo-real" style="flex:0 0 56%; min-height:0; clip-path:polygon(0 0, 100% 0, 100% 100%, 0 95%);">
     <img src="https://i.ibb.co/7x7hbdXJ/2026-01-24-22-16-03-IMG-3820.jpg" alt="" style="object-position:center top;">
     <div style="position:absolute; top:38px; left:38px; z-index:2;">
       <div class="eyebrow" style="color:var(--paper);">15 — Contact</div>
@@ -885,5 +1140,24 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 </div>
 </div>
 
+<script>
+// Sécurité supplémentaire : force la hauteur A4 exacte (ratio 210/297)
+// en pixels sur chaque page, quel que soit le contenu à l'intérieur.
+// Empêche toute page de devenir "plus longue" que le format A4 réel,
+// même si le CSS aspect-ratio n'est pas respecté dans certains navigateurs.
+function forceA4Height(){
+  document.querySelectorAll('.sheet').forEach(function(el){
+    var w = el.getBoundingClientRect().width;
+    if (w > 0) {
+      el.style.height = (w * 297 / 210) + 'px';
+      el.style.overflow = 'hidden';
+    }
+  });
+}
+window.addEventListener('load', forceA4Height);
+window.addEventListener('resize', forceA4Height);
+window.addEventListener('beforeprint', forceA4Height);
+forceA4Height();
+</script>
 </body>
 </html>
