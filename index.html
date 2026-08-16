@@ -276,11 +276,11 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .budget-tbl-expenses{ height:95%; }
 .budget-tbl-revenue{ height:75%; }
 .budget-tbl tbody tr:nth-child(even) td{ background:rgba(11,10,8,0.035); }
-.budget-tbl td{ font-size:10.5px; padding:5px 7px; color:#33302a; }
+.budget-tbl td{ font-size:12.5px; padding:7px 8px; color:#33302a; }
 .budget-tbl td:first-child{ padding-left:8px; }
 .budget-tbl td:last-child{ text-align:right; font-weight:700; color:var(--ink); white-space:nowrap; padding-right:8px; font-variant-numeric:tabular-nums; }
-.budget-total-row td{ font-weight:900; border-top:2px solid var(--ink); padding-top:11px; font-size:12px; background:none !important; }
-.budget-total-row td:first-child{ text-transform:uppercase; letter-spacing:0.03em; font-size:11.5px; }
+.budget-total-row td{ font-weight:900; border-top:2px solid var(--ink); padding-top:13px; font-size:13.5px; background:none !important; }
+.budget-total-row td:first-child{ text-transform:uppercase; letter-spacing:0.03em; font-size:12.5px; }
 .budget-summary{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:30px; }
 .budget-summary-cell{ background:var(--ink); color:var(--paper); padding:22px 14px; text-align:center; border-radius:6px; position:relative; overflow:hidden; }
 .budget-summary-highlight{ background:var(--flame); }
@@ -293,25 +293,48 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 .page-budget-detail{ display:flex; flex-direction:column; background:var(--paper); }
 .budget-detail-inner{ padding:44px 46px 34px; display:flex; flex-direction:column; flex:1; position:relative; }
 .budget-detail-inner h2{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:clamp(24px,5.5vw,36px); text-transform:uppercase; margin-top:6px; margin-bottom:8px; }
-.budget-detail-inner .rule{ width:60px; height:5px; margin-bottom:20px; }
-.bd-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px 22px; flex:1; }
-.bd-card{ border:1px solid rgba(11,10,8,0.14); border-radius:6px; padding:12px 14px 10px; display:flex; flex-direction:column; }
-.bd-card-title{ font-family:'Big Shoulders Display',sans-serif; font-weight:800; font-size:12.5px; text-transform:uppercase; letter-spacing:0.03em; color:var(--ink); border-bottom:2px solid var(--flame); padding-bottom:6px; margin-bottom:6px; }
-.bd-card-title span{ font-family:'Fraunces',serif; font-weight:400; font-style:italic; font-size:9.5px; text-transform:none; letter-spacing:0; color:#8a8579; }
+.budget-detail-inner .rule{ width:60px; height:5px; margin-bottom:22px; }
+.bd-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px 24px; flex:1; }
+.bd-grid .bd-card{ min-height:250px; }
+.bd-card{ border:none; border-top:3px solid var(--flame); background:rgba(11,10,8,0.02); border-radius:0 0 6px 6px; padding:14px 16px 12px; display:flex; flex-direction:column; }
+.bd-card:nth-child(2){ border-top-color:var(--gold); }
+.bd-card:nth-child(3){ border-top-color:var(--teal); }
+.bd-card:nth-child(4){ border-top-color:var(--indigo); }
+.bd-card:nth-child(5){ border-top-color:var(--coral); }
+.bd-card:nth-child(6){ border-top-color:var(--forest); }
+.bd-card-title{ font-family:'Big Shoulders Display',sans-serif; font-weight:800; font-size:14px; text-transform:uppercase; letter-spacing:0.02em; color:var(--ink); padding-bottom:0; margin-bottom:8px; border-bottom:none; }
+.bd-card-title span{ font-family:'Fraunces',serif; font-weight:400; font-style:italic; font-size:11px; text-transform:none; letter-spacing:0; color:#8a8579; display:block; margin-top:2px; }
 .bd-tbl{ width:100%; border-collapse:collapse; flex:1; }
-.bd-tbl thead th{ text-align:left; font-family:'Big Shoulders Display',sans-serif; font-weight:700; font-size:7.5px; text-transform:uppercase; letter-spacing:0.04em; color:#8a8579; padding:2px 3px; }
+.bd-tbl thead th{ text-align:left; font-family:'Big Shoulders Display',sans-serif; font-weight:700; font-size:9px; text-transform:uppercase; letter-spacing:0.05em; color:#8a8579; padding:3px 4px; border-bottom:1px solid rgba(11,10,8,0.15); }
 .bd-tbl thead th:not(:first-child){ text-align:right; }
-.bd-tbl tbody td{ font-size:9px; padding:2.5px 3px; color:#33302a; border-top:1px solid rgba(11,10,8,0.08); }
+.bd-tbl tbody td{ font-size:11px; padding:4px 4px; color:#33302a; border-top:1px solid rgba(11,10,8,0.07); }
 .bd-tbl tbody td:not(:first-child){ text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
-.bd-subtotal{ display:flex; justify-content:space-between; font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:11px; text-transform:uppercase; letter-spacing:0.02em; border-top:1.5px solid var(--ink); margin-top:6px; padding-top:6px; }
+.bd-subtotal{ display:flex; justify-content:space-between; font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:13px; text-transform:uppercase; letter-spacing:0.02em; border-top:1.5px solid var(--ink); margin-top:8px; padding-top:8px; }
 .bd-subtotal span{ color:var(--flame); }
-.bd-card-total{ background:var(--ink); border:none; justify-content:center; gap:10px; }
-.bd-card-total .bd-card-title{ color:var(--paper); border-bottom-color:var(--gold); }
-.bd-total-row{ display:flex; justify-content:space-between; align-items:baseline; font-size:12px; color:var(--paper); opacity:0.85; }
-.bd-total-row strong{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:15px; }
-.bd-total-highlight{ opacity:1; color:var(--gold); border-top:1px solid rgba(246,241,228,0.25); margin-top:4px; padding-top:8px; }
-.bd-total-highlight strong{ font-size:19px; }
+.bd-card.bd-card-total{ background:var(--ink); border-top:3px solid var(--gold); border-radius:0 0 6px 6px; justify-content:center; gap:12px; padding:20px 18px; }
+.bd-card-total .bd-card-title{ color:var(--paper); }
+.bd-total-row{ display:flex; justify-content:space-between; align-items:baseline; font-size:14px; color:var(--paper); opacity:0.85; }
+.bd-total-row strong{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:17px; }
+.bd-total-highlight{ opacity:1; color:var(--gold); border-top:1px solid rgba(246,241,228,0.25); margin-top:6px; padding-top:10px; }
+.bd-total-highlight strong{ font-size:22px; }
 .bd-pagenum{ position:absolute; bottom:14px; right:20px; font-family:'Fraunces',serif; font-style:italic; font-size:11px; color:#8a8579; }
+
+/* --- Page 2 détail budget : rangée compacte pour les tableaux
+   à une seule ligne, et total général en bandeau pleine largeur --- */
+.bd-page2-layout{ display:flex; flex-direction:column; gap:18px; flex:1; }
+.bd-row-2col{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.bd-row-2col .bd-card{ height:600px; }
+.bd-row-2col .bd-tbl{ flex:1; height:auto; }
+.bd-row-3col{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.bd-row-3col .bd-card{ padding:14px 16px 12px; }
+.bd-row-3col .bd-card-title{ font-size:14px; margin-bottom:8px; }
+.bd-row-3col .bd-tbl tbody td{ font-size:11px; padding:4px 4px; }
+.bd-row-3col .bd-subtotal{ font-size:13px; margin-top:8px; padding-top:8px; }
+.bd-full-total{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; background:var(--ink); border-radius:6px; padding:22px 18px; }
+.bd-full-total-cell{ text-align:center; }
+.bd-full-total-lbl{ font-family:'Big Shoulders Display',sans-serif; font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--paper); opacity:0.75; margin-bottom:8px; }
+.bd-full-total-val{ font-family:'Big Shoulders Display',sans-serif; font-weight:900; font-size:22px; color:var(--paper); }
+.bd-full-total-cell.highlight .bd-full-total-val{ color:var(--gold); }
 
 /* ===================== FORMAT A4 FIXE (DESKTOP) =====================
    Chaque .sheet garde le ratio A4 (210 x 297) sur les écrans desktop.
@@ -932,6 +955,24 @@ body{ background:#000; font-family:'Karla', sans-serif; }
 
   <div class="bd-grid">
     <div class="bd-card">
+      <div class="bd-card-title">Dépenses du festival</div>
+      <table class="bd-tbl">
+        <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
+        <tbody>
+          <tr><td>Trophées</td><td>—</td><td>—</td><td>100 000</td></tr>
+          <tr><td>Location tapis</td><td>—</td><td>—</td><td>50 000</td></tr>
+          <tr><td>Impression lettres d'invitation</td><td>—</td><td>—</td><td>20 000</td></tr>
+          <tr><td>Badges</td><td>—</td><td>—</td><td>15 000</td></tr>
+          <tr><td>Bannières jurys &amp; tapis</td><td>—</td><td>—</td><td>25 000</td></tr>
+          <tr><td>Eau</td><td>—</td><td>—</td><td>15 000</td></tr>
+          <tr><td>Déplacement organisation</td><td>—</td><td>—</td><td>30 000</td></tr>
+          <tr><td>Attestations de participation</td><td>—</td><td>—</td><td>15 000</td></tr>
+        </tbody>
+      </table>
+      <div class="bd-subtotal">Sous-total <span>270 000 FCFA</span></div>
+    </div>
+
+    <div class="bd-card">
       <div class="bd-card-title">Cyphers &amp; workshops trimestriels <span>(4 sessions/an)</span></div>
       <table class="bd-tbl">
         <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
@@ -961,35 +1002,6 @@ body{ background:#000; font-family:'Karla', sans-serif; }
     </div>
 
     <div class="bd-card">
-      <div class="bd-card-title">Création artistique</div>
-      <table class="bd-tbl">
-        <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
-        <tbody>
-          <tr><td>Ascension à ciel clos</td><td>—</td><td>—</td><td>300 000</td></tr>
-        </tbody>
-      </table>
-      <div class="bd-subtotal">Sous-total <span>300 000 FCFA</span></div>
-    </div>
-
-    <div class="bd-card">
-      <div class="bd-card-title">Dépenses du festival</div>
-      <table class="bd-tbl">
-        <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
-        <tbody>
-          <tr><td>Trophées</td><td>—</td><td>—</td><td>100 000</td></tr>
-          <tr><td>Location tapis</td><td>—</td><td>—</td><td>50 000</td></tr>
-          <tr><td>Impression lettres d'invitation</td><td>—</td><td>—</td><td>20 000</td></tr>
-          <tr><td>Badges</td><td>—</td><td>—</td><td>15 000</td></tr>
-          <tr><td>Bannières jurys &amp; tapis</td><td>—</td><td>—</td><td>25 000</td></tr>
-          <tr><td>Eau</td><td>—</td><td>—</td><td>15 000</td></tr>
-          <tr><td>Déplacement organisation</td><td>—</td><td>—</td><td>30 000</td></tr>
-          <tr><td>Attestations de participation</td><td>—</td><td>—</td><td>15 000</td></tr>
-        </tbody>
-      </table>
-      <div class="bd-subtotal">Sous-total <span>270 000 FCFA</span></div>
-    </div>
-
-    <div class="bd-card">
       <div class="bd-card-title">Cagnotte des gagnants</div>
       <table class="bd-tbl">
         <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
@@ -1001,6 +1013,17 @@ body{ background:#000; font-family:'Karla', sans-serif; }
         </tbody>
       </table>
       <div class="bd-subtotal">Sous-total <span>500 000 FCFA</span></div>
+    </div>
+
+    <div class="bd-card">
+      <div class="bd-card-title">Création artistique</div>
+      <table class="bd-tbl">
+        <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
+        <tbody>
+          <tr><td>Ascension à ciel clos</td><td>—</td><td>—</td><td>300 000</td></tr>
+        </tbody>
+      </table>
+      <div class="bd-subtotal">Sous-total <span>300 000 FCFA</span></div>
     </div>
 
     <div class="bd-card">
@@ -1025,75 +1048,87 @@ body{ background:#000; font-family:'Karla', sans-serif; }
   <h2>Détail des dépenses</h2>
   <div class="rule" style="background:var(--flame);"></div>
 
-  <div class="bd-grid">
-    <div class="bd-card">
-      <div class="bd-card-title">Restauration <span>(3 jours de festival)</span></div>
-      <table class="bd-tbl">
-        <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
-        <tbody>
-          <tr><td>Repas (5 000 FCFA/pers./jour — 40 pers. × 3 j)</td><td>5 000</td><td>120</td><td>600 000</td></tr>
-        </tbody>
-      </table>
-      <div class="bd-subtotal">Sous-total <span>600 000 FCFA</span></div>
+  <div class="bd-page2-layout">
+    <div class="bd-row-2col">
+      <div class="bd-card">
+        <div class="bd-card-title">Déplacements invités internationaux</div>
+        <table class="bd-tbl">
+          <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
+          <tbody>
+            <tr><td>Togo (4 danseurs)</td><td>35 000</td><td>4</td><td>140 000</td></tr>
+            <tr><td>Ghana (3 danseurs)</td><td>70 000</td><td>3</td><td>210 000</td></tr>
+            <tr><td>Nigéria (3 danseurs)</td><td>60 000</td><td>3</td><td>180 000</td></tr>
+            <tr><td>Côte d'Ivoire (2 danseurs)</td><td>100 000</td><td>2</td><td>200 000</td></tr>
+            <tr><td>France — à titre gracieux</td><td>—</td><td>—</td><td>—</td></tr>
+          </tbody>
+        </table>
+        <div class="bd-subtotal">Sous-total <span>730 000 FCFA</span></div>
+      </div>
+
+      <div class="bd-card">
+        <div class="bd-card-title">Logistique</div>
+        <table class="bd-tbl">
+          <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
+          <tbody>
+            <tr><td>DJ</td><td>—</td><td>—</td><td>100 000</td></tr>
+            <tr><td>Maître de cérémonie (MC)</td><td>—</td><td>—</td><td>100 000</td></tr>
+            <tr><td>Équipe technique informatique</td><td>—</td><td>—</td><td>300 000</td></tr>
+            <tr><td>Hôtesses</td><td>—</td><td>—</td><td>50 000</td></tr>
+            <tr><td>Collation invités</td><td>—</td><td>—</td><td>30 000</td></tr>
+          </tbody>
+        </table>
+        <div class="bd-subtotal">Sous-total <span>580 000 FCFA</span></div>
+      </div>
     </div>
 
-    <div class="bd-card">
-      <div class="bd-card-title">Déplacements invités internationaux</div>
-      <table class="bd-tbl">
-        <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
-        <tbody>
-          <tr><td>Togo (4 danseurs)</td><td>35 000</td><td>4</td><td>140 000</td></tr>
-          <tr><td>Ghana (3 danseurs)</td><td>70 000</td><td>3</td><td>210 000</td></tr>
-          <tr><td>Nigéria (3 danseurs)</td><td>60 000</td><td>3</td><td>180 000</td></tr>
-          <tr><td>Côte d'Ivoire (2 danseurs)</td><td>100 000</td><td>2</td><td>200 000</td></tr>
-          <tr><td>France — à titre gracieux</td><td>—</td><td>—</td><td>—</td></tr>
-        </tbody>
-      </table>
-      <div class="bd-subtotal">Sous-total <span>730 000 FCFA</span></div>
+    <div class="bd-row-3col">
+      <div class="bd-card">
+        <div class="bd-card-title">Restauration <span>(3 jours de festival)</span></div>
+        <table class="bd-tbl">
+          <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
+          <tbody>
+            <tr><td>Repas (5 000 FCFA/pers./jour — 40 pers. × 3 j)</td><td>5 000</td><td>120</td><td>600 000</td></tr>
+          </tbody>
+        </table>
+        <div class="bd-subtotal">Sous-total <span>600 000 FCFA</span></div>
+      </div>
+
+      <div class="bd-card">
+        <div class="bd-card-title">Déplacement des invités locaux</div>
+        <table class="bd-tbl">
+          <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
+          <tbody>
+            <tr><td>Transferts &amp; accompagnement (forfait)</td><td>—</td><td>—</td><td>500 000</td></tr>
+          </tbody>
+        </table>
+        <div class="bd-subtotal">Sous-total <span>500 000 FCFA</span></div>
+      </div>
+
+      <div class="bd-card">
+        <div class="bd-card-title">Excursion</div>
+        <table class="bd-tbl">
+          <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
+          <tbody>
+            <tr><td>Transport groupe vers Camaté (Festival des Collines)</td><td>—</td><td>—</td><td>1 500 000</td></tr>
+          </tbody>
+        </table>
+        <div class="bd-subtotal">Sous-total <span>1 500 000 FCFA</span></div>
+      </div>
     </div>
 
-    <div class="bd-card">
-      <div class="bd-card-title">Déplacement des invités locaux</div>
-      <table class="bd-tbl">
-        <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
-        <tbody>
-          <tr><td>Transferts &amp; accompagnement (forfait)</td><td>—</td><td>—</td><td>500 000</td></tr>
-        </tbody>
-      </table>
-      <div class="bd-subtotal">Sous-total <span>500 000 FCFA</span></div>
-    </div>
-
-    <div class="bd-card">
-      <div class="bd-card-title">Logistique</div>
-      <table class="bd-tbl">
-        <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
-        <tbody>
-          <tr><td>DJ</td><td>—</td><td>—</td><td>100 000</td></tr>
-          <tr><td>Maître de cérémonie (MC)</td><td>—</td><td>—</td><td>100 000</td></tr>
-          <tr><td>Équipe technique informatique</td><td>—</td><td>—</td><td>300 000</td></tr>
-          <tr><td>Hôtesses</td><td>—</td><td>—</td><td>50 000</td></tr>
-          <tr><td>Collation invités</td><td>—</td><td>—</td><td>30 000</td></tr>
-        </tbody>
-      </table>
-      <div class="bd-subtotal">Sous-total <span>580 000 FCFA</span></div>
-    </div>
-
-    <div class="bd-card">
-      <div class="bd-card-title">Excursion</div>
-      <table class="bd-tbl">
-        <thead><tr><th>Description</th><th>Prix</th><th>Qté</th><th>Total</th></tr></thead>
-        <tbody>
-          <tr><td>Transport groupe vers Camaté (Festival des Collines)</td><td>—</td><td>—</td><td>1 500 000</td></tr>
-        </tbody>
-      </table>
-      <div class="bd-subtotal">Sous-total <span>1 500 000 FCFA</span></div>
-    </div>
-
-    <div class="bd-card bd-card-total">
-      <div class="bd-card-title">Total général</div>
-      <div class="bd-total-row"><span>Total dépenses</span><strong>8 320 000 FCFA</strong></div>
-      <div class="bd-total-row"><span>Total recettes</span><strong>4 300 000 FCFA</strong></div>
-      <div class="bd-total-row bd-total-highlight"><span>Besoin de financement</span><strong>4 020 000 FCFA</strong></div>
+    <div class="bd-full-total">
+      <div class="bd-full-total-cell">
+        <div class="bd-full-total-lbl">Total dépenses</div>
+        <div class="bd-full-total-val">8 320 000 FCFA</div>
+      </div>
+      <div class="bd-full-total-cell">
+        <div class="bd-full-total-lbl">Total recettes</div>
+        <div class="bd-full-total-val">4 300 000 FCFA</div>
+      </div>
+      <div class="bd-full-total-cell highlight">
+        <div class="bd-full-total-lbl">Besoin de financement</div>
+        <div class="bd-full-total-val">4 020 000 FCFA</div>
+      </div>
     </div>
   </div>
   <div class="bd-pagenum">2/2</div>
